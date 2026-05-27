@@ -1,0 +1,12 @@
+{
+  "courseId": "chem002",
+  "subjectId": "CHEM002",
+  "title": "Organic Chemistry",
+  "repository": "sasaki0301/OrganicChem",
+  "version": "0.1.0",
+  "access": "free",
+  "contentRoot": "content/courses/chem002",
+  "lessonPathPattern": "chapters/{chapter}/lessons/{lesson}.html",
+  "quizPathPattern": "chapters/{chapter}/quizzes/{lesson}.quiz.html",
+  "rootHtmlPreserved": true
+}
