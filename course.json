@@ -1,0 +1,10 @@
+{
+  "courseId": "chem002",
+  "subjectId": "CHEM002",
+  "title": "Organic Chemistry",
+  "repository": "sasaki0301/OrganicChem",
+  "version": "0.1.0",
+  "access": "free",
+  "contentStatus": "root-html-preserved",
+  "notes": "Root lesson and quiz HTML files are preserved to avoid breaking existing LearnTrack links. Use this manifest as the starting point for staged content reorganization."
+}
