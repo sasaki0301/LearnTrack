@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 3 – Comprehensive Assessment</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+  }
+
+  h2 { color: #136f63; margin-bottom: 25px; font-size: 1.8em; }
+
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 20px;
+  }
+
+  .choices { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05em;
+    transition: all 0.2s ease;
+  }
+  .choice:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .choice.selected { background: #174ea6; color: #fff; transform: scale(1.02); }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 15px;
+  }
+  .next-btn:hover { background: #0f5b52; }
+
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+    margin-top: 20px;
+  }
+  .stars { font-size: 2.5em; margin-top: 10px; }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .quiz-btn {
+    background: #e8ecf8;
+    color: #174ea6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .quiz-btn:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .quiz-btn.primary { background: #136f63; color: #fff; }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+
+<h2>Chapter 3 – Comprehensive Assessment</h2>
+<div class="progress-text" id="progressText">Question 1 of 25</div>
+<div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="quizBox"></div>
+<button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+
+</div>
+
+<script>
+const quizData = [
+  /* POLARITY */
+  { q:"1. Electronegativity is best defined as:", 
+    c:["The ability of an atom to gain mass",
+       "The attraction of an atom for shared electrons",
+       "The amount of energy in a proton",
+       "The number of neutrons in the nucleus"],
+    a:1,
+    e:"Electronegativity measures how strongly an atom pulls shared electrons." },
+
+  { q:"2. Which bond is the MOST polar?", 
+    c:["H–H","C–H","O–H","N–H"],
+    a:2,
+    e:"O–H has the greatest electronegativity difference." },
+
+  { q:"3. A molecule is nonpolar if:", 
+    c:["It contains at least one polar bond",
+       "Its dipoles cancel due to symmetry",
+       "It contains no lone pairs",
+       "It is linear or tetrahedral only"],
+    a:1,
+    e:"Polarity depends on vector cancellation, not the presence of polar bonds alone." },
+
+  { q:"4. Which molecule is polar?", 
+    c:["CO₂","CH₄","NH₃","BF₃"],
+    a:2,
+    e:"NH₃ is trigonal pyramidal → dipoles do not cancel." },
+
+  /* FORMAL CHARGE */
+  { q:"5. What is the formal charge on oxygen in OH⁻?", 
+    c:["0","–1","+1","–2"],
+    a:1,
+    e:"6 – (6 nonbonding + 1 bond) = –1" },
+
+  { q:"6. A good Lewis structure usually has:", 
+    c:["Maximum charges possible","No octets","Low formal charges","Atoms moved to achieve symmetry"],
+    a:2,
+    e:"Lower formal charge = more stability." },
+
+  { q:"7. Which atom is most stable carrying a negative formal charge?", 
+    c:["Carbon","Fluorine","Oxygen","Hydrogen"],
+    a:2,
+    e:"More electronegative atoms stabilize negative charges better." },
+
+  /* RESONANCE */
+  { q:"8. Resonance structures differ only in:", 
+    c:["Electron placement","Atom arrangement","Number of atoms","Mass of particles"],
+    a:0,
+    e:"Resonance moves electrons, never atoms." },
+
+  { q:"9. Which is TRUE about the resonance hybrid?", 
+    c:["It switches rapidly between structures",
+       "It is an average of all valid contributors",
+       "It is always identical to the major contributor",
+       "It only applies to ions"],
+    a:1,
+    e:"A hybrid represents electron delocalization." },
+
+  { q:"10. Which contributes MOST to a resonance hybrid?", 
+    c:["Structure with full octets","Structure with many charges",
+       "Structure with negative charge on carbon",
+       "One with maximum separation of charges"],
+    a:0,
+    e:"Full octets + minimal charge separation = most stable." },
+
+  /* ACIDS / BASES */
+  { q:"11. Bronsted–Lowry acid:", 
+    c:["Accepts electrons","Donates electrons","Donates H⁺","Accepts H⁺"],
+    a:2,
+    e:"Bronsted acids donate protons." },
+
+  { q:"12. The conjugate base of H₂CO₃ is:", 
+    c:["HCO₃⁻","CO₃²⁻","OH⁻","H₃O⁺"],
+    a:0,
+    e:"Removing one H⁺ gives HCO₃⁻." },
+
+  { q:"13. Lewis acids are defined as:", 
+    c:["Proton donors","Electron pair donors","Electron pair acceptors","Compounds with nitrogen"],
+    a:2,
+    e:"Lewis acids accept electron pairs." },
+
+  { q:"14. Which is a Lewis acid?", 
+    c:["NH₃","H₂O","BF₃","CH₄"],
+    a:2,
+    e:"BF₃ has an empty p orbital → accepts electrons." },
+
+  { q:"15. Which is the stronger base?", 
+    c:["NH₃","Aniline (C₆H₅NH₂)"],
+    a:0,
+    e:"Aniline’s lone pair is delocalized → weaker base." },
+
+  /* ORGANIC ACIDS/BASES */
+  { q:"16. Carboxylic acids are stronger than alcohols because:", 
+    c:["Alcohols have more hydrogens",
+       "Carboxylates are resonance-stabilized",
+       "Carbonyl groups donate electrons",
+       "OH groups are inert"],
+    a:1,
+    e:"Carboxylates have two resonance forms → very stable." },
+
+  { q:"17. Which increases acidity?", 
+    c:["Electron-donating groups","Electron-withdrawing groups","Adding methyl groups","Removing oxygen"],
+    a:1,
+    e:"E–W groups stabilize the conjugate base." },
+
+  { q:"18. Which is the strongest acid?", 
+    c:["Ethanol","Phenol","Acetic acid"],
+    a:2,
+    e:"Acetic acid’s conjugate base is resonance-stabilized." },
+
+  /* APPLICATION / SCENARIO QUESTIONS */
+  { q:"19. Which bond is more polar: C–F or C–O?", 
+    c:["C–F","C–O","Both equal","Neither is polar"],
+    a:0,
+    e:"F is the most electronegative element → strongest dipole." },
+
+  { q:"20. Which molecule can show resonance?", 
+    c:["CH₄","CO₃²⁻","NH₄⁺","C₂H₆"],
+    a:1,
+    e:"Carbonate has 3 equivalent resonance forms." },
+
+  { q:"21. Which species is the strongest Lewis base?", 
+    c:["Cl⁻","H₂O","NO₃⁻","BF₃"],
+    a:0,
+    e:"Cl⁻ has a full lone pair & negative charge → strong donor." },
+
+  { q:"22. Which conjugate base is MOST stable?", 
+    c:["CH₃O⁻","CH₃COO⁻","NH₂⁻","HO⁻"],
+    a:1,
+    e:"Carboxylate has resonance stabilization." },
+
+  { q:"23. A molecule with polar bonds but a nonpolar shape is:", 
+    c:["NH₃","H₂O","CO₂","CH₃Cl"],
+    a:2,
+    e:"CO₂ is linear → dipoles cancel." },
+
+  { q:"24. A negative charge is most stable when placed on:", 
+    c:["Carbon","Nitrogen","Oxygen","Fluorine"],
+    a:3,
+    e:"Fluorine is most electronegative → stabilizes negative charge best." },
+
+  { q:"25. What is the conjugate acid of NH₃?", 
+    c:["NH₂⁻","NH₄⁺","N²⁻","NH₃⁺"],
+    a:1,
+    e:"NH₃ gains H⁺ → NH₄⁺." },
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

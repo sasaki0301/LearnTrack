@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 3 – Lesson 4 Quiz: Acids and Bases</title>
+
+<style>
+  /* === BASE PAGE === */
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #136f63;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+  }
+
+  /* progress bar */
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+    border-radius: 8px;
+  }
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* Question section */
+  .question {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 20px;
+  }
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05em;
+    transition: all 0.2s ease;
+  }
+  .choice:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .choice.selected { background: #174ea6; color: #fff; transform: scale(1.02); }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  /* Buttons */
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 15px;
+  }
+  .next-btn:hover { background: #0f5b52; }
+
+  /* Results */
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+    margin-top: 20px;
+  }
+  .stars {
+    font-size: 2.5em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .quiz-btn {
+    background: #e8ecf8;
+    color: #174ea6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .quiz-btn:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .quiz-btn.primary { background: #136f63; color: #fff; }
+  .quiz-btn.primary:hover { background: #0f5b52; }
+
+  @media (max-width: 600px) {
+    .quiz-container { padding: 25px; }
+    .question { font-size: 1.1em; }
+    .stars { font-size: 2em; }
+  }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Lesson 4 Quiz – Acids and Bases</h2>
+  <div class="progress-text" id="progressText">Question 1 of 10</div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+  {
+    q: "1. According to the Arrhenius definition, an acid is a substance that:",
+    c: ["Donates H⁺", "Releases OH⁻", "Produces H⁺ in water", "Accepts an electron pair"],
+    a: 2,
+    e: "Arrhenius acids specifically produce H⁺ ions when dissolved in water."
+  },
+  {
+    q: "2. Which of the following is a Brønsted–Lowry base?",
+    c: ["HCl", "NH₃", "HNO₃", "H₃O⁺"],
+    a: 1,
+    e: "NH₃ acts as a proton acceptor, making it a Brønsted–Lowry base."
+  },
+  {
+    q: "3. In the reaction HCl + H₂O → H₃O⁺ + Cl⁻, which species is the conjugate base?",
+    c: ["H₂O", "H₃O⁺", "Cl⁻", "HCl"],
+    a: 2,
+    e: "Cl⁻ forms after HCl donates a proton, making it the conjugate base."
+  },
+  {
+    q: "4. What is the Brønsted–Lowry acid in this reaction: NH₄⁺ + OH⁻ → NH₃ + H₂O?",
+    c: ["NH₃", "OH⁻", "NH₄⁺", "H₂O"],
+    a: 2,
+    e: "NH₄⁺ donates a proton to OH⁻, making it the acid."
+  },
+  {
+    q: "5. Which species acts as a Lewis acid?",
+    c: ["NH₃", "H₂O", "BF₃", "OH⁻"],
+    a: 2,
+    e: "BF₃ can accept an electron pair, which makes it a Lewis acid."
+  },
+  {
+    q: "6. Amphiprotic substances can:",
+    c: ["Only donate protons", "Only accept protons", "Neither donate nor accept protons", "Both donate and accept protons"],
+    a: 3,
+    e: "Amphiprotic molecules like HCO₃⁻ or H₂O can both donate and accept H⁺."
+  },
+  {
+    q: "7. Which of the following best describes a strong acid?",
+    c: ["It completely ionizes in water", "It partly accepts electrons", "It never forms conjugate bases", "It has no hydrogens to donate"],
+    a: 0,
+    e: "A strong acid fully dissociates into ions in solution."
+  },
+  {
+    q: "8. Identify the conjugate acid of NH₃.",
+    c: ["NH₂⁻", "NH₄⁺", "N₂H₂", "H₂O"],
+    a: 1,
+    e: "Adding a proton to NH₃ forms its conjugate acid NH₄⁺."
+  },
+  {
+    q: "9. What role does OH⁻ play in acid–base chemistry?",
+    c: ["Arrhenius acid", "Lewis acid", "Brønsted base", "Conjugate acid"],
+    a: 2,
+    e: "OH⁻ acts as a proton acceptor → Brønsted base."
+  },
+  {
+    q: "10. Which statement is TRUE about Lewis acids and bases?",
+    c: ["Acids donate protons", "Bases produce OH⁻", "Acids accept electron pairs", "Bases accept electron pairs"],
+    a: 2,
+    e: "Lewis acids accept electron pairs (the most general definition of acidity)."
+  }
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

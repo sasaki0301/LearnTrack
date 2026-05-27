@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 5 – Comprehensive Assessment: Alkenes & Alkynes</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f9f1, #f7faff);
+  margin: 0;
+  padding: 40px 20px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.quiz-container {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px 50px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  width: 95%;
+  max-width: 900px;
+  text-align: center;
+}
+
+h2 {
+  color: #136f63;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.progress-wrapper {
+  background: #e9f5ef;
+  border-radius: 8px;
+  height: 14px;
+  width: 100%;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #136f63, #2b7de9);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  text-align: right;
+  font-size: 0.95em;
+  color: #174ea6;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.question {
+  font-size: 1.25em;
+  font-weight: 600;
+  color: #174ea6;
+  margin-bottom: 20px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.choice {
+  background: #e8ecf8;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05em;
+}
+
+.choice:hover { background: #d3dbf8; }
+.choice.selected { background: #174ea6; color: #fff; }
+
+.explanation {
+  background: #eef3ff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  display: none;
+  text-align: left;
+}
+
+.next-btn {
+  background: #136f63;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 1.05em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.result {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #174ea6;
+  margin-top: 20px;
+}
+
+.stars {
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+
+.quiz-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quiz-btn {
+  background: #e8ecf8;
+  color: #174ea6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.quiz-btn.primary {
+  background: #136f63;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+<h2>Chapter 5 Comprehensive Assessment<br>Alkenes & Alkynes</h2>
+
+<div class="progress-text" id="progressText"></div>
+<div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+<div id="quizBox"></div>
+<button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+{ q:"1. Which statement best describes an alkene?", c:["Contains only single bonds","Contains at least one C=C bond","Contains a C≡C bond","Is always cyclic"], a:1,
+e:"Alkenes are unsaturated hydrocarbons containing at least one carbon–carbon double bond." },
+
+{ q:"2. What is the general formula of an acyclic alkene?", c:["CnH2n+2","CnH2n","CnH2n−2","CnHn"], a:1,
+e:"Acyclic alkenes follow the formula CₙH₂ₙ." },
+
+{ q:"3. Which factor causes cis–trans isomerism in alkenes?", c:["Free rotation","Presence of triple bond","Restricted rotation of C=C","High molecular mass"], a:2,
+e:"The π bond prevents free rotation, locking substituents in place." },
+
+{ q:"4. When must E–Z notation be used?", c:["When molecule is cyclic","When four substituents differ","When double bond is terminal","When alkane is branched"], a:1,
+e:"E–Z is required when all four substituents on the double bond are different." },
+
+{ q:"5. Which priority rule is used for E–Z assignment?", c:["Chain length","Atomic number","Bond angle","Molecular mass"], a:1,
+e:"Higher atomic number = higher priority (CIP rules)." },
+
+{ q:"6. What does the prefix 'cyclo-' indicate?", c:["Triple bond","Ring structure","Aromaticity","Isomerism"], a:1,
+e:"Cyclo- indicates a ring structure." },
+
+{ q:"7. Which compound can show cis–trans isomerism?", c:["Ethene","But-1-ene","But-2-ene","Ethyne"], a:2,
+e:"But-2-ene has two different substituents on each C of the double bond." },
+
+{ q:"8. Why don’t alkynes show cis–trans isomerism?", c:["Too reactive","Linear geometry","Too many hydrogens","Lack of pi bonds"], a:1,
+e:"Triple bonds are linear, so no geometric isomerism occurs." },
+
+{ q:"9. What suffix is used for alkynes?", c:["-ane","-ene","-yne","-yl"], a:2,
+e:"Alkynes use the suffix -yne." },
+
+{ q:"10. Which has the highest degree of unsaturation?", c:["Alkane","Alkene","Alkyne","Cycloalkane"], a:2,
+e:"Alkynes have two π bonds, making them most unsaturated." },
+
+{ q:"11. What is the priority in numbering mixed enyne chains?", c:["Triple bond first","Alphabetical order","Double bond first","Longest chain only"], a:2,
+e:"If locants tie, the double bond receives the lower number." },
+
+{ q:"12. Which name is correct?", c:["3-ethylhex-1-ene","hex-1-ene-3-ethyl","1-hexene-3-ethyl","ethyl-hexene"], a:0,
+e:"Substituents precede the parent name; double bond position is included." },
+
+{ q:"13. How many pi bonds are in an alkyne?", c:["0","1","2","3"], a:2,
+e:"Triple bonds contain two π bonds." },
+
+{ q:"14. Which compound is a cycloalkene?", c:["Hex-1-ene","Cyclohexane","Cyclohexene","Benzene"], a:2,
+e:"Cyclohexene contains a ring and a C=C bond." },
+
+{ q:"15. What does Z mean in E–Z notation?", c:["Opposite sides","Same side","Lowest priority","Linear"], a:1,
+e:"Z (zusammen) means higher-priority groups are on the same side." },
+
+{ q:"16. Which bond prevents free rotation?", c:["σ bond","π bond","Hydrogen bond","Ionic bond"], a:1,
+e:"The π bond restricts rotation." },
+
+{ q:"17. Which is the correct formula for an alkyne with 6 carbons?", c:["C6H14","C6H12","C6H10","C6H8"], a:2,
+e:"Alkynes follow CₙH₂ₙ₋₂ → C6H10." },
+
+{ q:"18. Which molecule requires E–Z notation?", c:["Propene","But-1-ene","2-chlorobut-2-ene","Ethyne"], a:2,
+e:"Four different substituents require E–Z naming." },
+
+{ q:"19. What type of hybridization occurs in alkenes?", c:["sp","sp²","sp³","sp⁴"], a:1,
+e:"Alkene carbons are sp² hybridized." },
+
+{ q:"20. What type of hybridization occurs in alkynes?", c:["sp","sp²","sp³","sp⁴"], a:0,
+e:"Alkyne carbons are sp hybridized." },
+
+{ q:"21. Why are cycloalkenes rigid?", c:["Ionic bonding","Ring strain","Free rotation","Hydrogen bonding"], a:1,
+e:"Ring strain and π bonds restrict rotation." },
+
+{ q:"22. Which compound is unsaturated?", c:["Pentane","Cyclopentane","Pentene","Neopentane"], a:2,
+e:"Unsaturated compounds contain double or triple bonds." },
+
+{ q:"23. Which suffix indicates two multiple bonds?", c:["-diene","-yne","-ene","-ane"], a:0,
+e:"-diene indicates two double bonds." },
+
+{ q:"24. Which is named correctly?", c:["Hex-3-yne","3-yne-hex","Hexyne-3","Hexyne"], a:0,
+e:"Correct format places bond location before suffix." },
+
+{ q:"25. Why does E–Z replace cis–trans?", c:["More complex","More universal","Older system","Easier spelling"], a:1,
+e:"E–Z applies to all substituted alkenes." },
+
+{ q:"26. Which is a mixed unsaturated compound?", c:["Pentene","Hexyne","Hept-2-en-4-yne","Cyclopropane"], a:2,
+e:"Contains both C=C and C≡C bonds." },
+
+{ q:"27. What determines major product geometry?", c:["Bond energy","Electron delocalization","Priority groups","Chain length"], a:2,
+e:"Priority groups define E or Z configuration." },
+
+{ q:"28. Which compound has cis–trans isomerism?", c:["Ethene","But-2-ene","Propene","Ethyne"], a:1,
+e:"But-2-ene meets cis–trans requirements." },
+
+{ q:"29. What does 'ene' indicate?", c:["Triple bond","Single bond","Double bond","Ring"], a:2,
+e:"-ene indicates a C=C bond." },
+
+{ q:"30. Which feature distinguishes alkenes from alkanes?", c:["Linear shape","Double bond","More hydrogens","sp³ hybridization"], a:1,
+e:"Alkenes contain a C=C bond; alkanes do not." }
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

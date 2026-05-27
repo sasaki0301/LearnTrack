@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 4 – Comprehensive Assessment: Alkanes & Cycloalkanes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  h2 { color: #136f63; margin-bottom: 20px; }
+
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 18px;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05em;
+    transition: all 0.2s ease;
+  }
+  .choice:hover { background: #d3dbf8; }
+  .choice.selected { background: #174ea6; color: #fff; }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+  }
+
+  .next-btn:hover { background: #0f5b52; }
+
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+    margin-top: 20px;
+  }
+
+  .stars { font-size: 2.5em; }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .quiz-btn {
+    background: #e8ecf8;
+    color: #174ea6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    cursor: pointer;
+  }
+
+  .quiz-btn.primary {
+    background: #136f63;
+    color: #fff;
+  }
+
+  .quiz-btn.primary:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Chapter 4 – Comprehensive Assessment</h2>
+  <div class="progress-text" id="progressText">Question 1 of 30</div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn">Next</button>
+</div>
+
+<script>
+const quizData = [
+{q:"1. What is the general formula of an alkane?",c:["CnH2n","CnH2n+2","CnHn","CnH2n−2"],a:1,e:"Alkanes are saturated hydrocarbons with the general formula CnH2n+2."},
+{q:"2. Which compound is a branched isomer of butane?",c:["Pentane","2-methylpropane","Cyclobutane","Ethane"],a:1,e:"2-methylpropane has the same formula as butane but a different structure."},
+{q:"3. Which alkyl group is obtained by removing one hydrogen from propane?",c:["Methyl","Ethyl","Propyl","Butyl"],a:2,e:"Removing one hydrogen from propane gives a propyl group."},
+{q:"4. What is the correct IUPAC name of CH3–CH(CH3)–CH3?",c:["Butane","Isobutane","2-methylpropane","2-methylbutane"],a:2,e:"The longest chain is propane with a methyl substituent at carbon 2."},
+{q:"5. How many structural isomers does hexane have?",c:["2","3","4","5"],a:3,e:"Hexane has five structural isomers."},
+{q:"6. What is the parent chain in 3-ethyl-2-methylpentane?",c:["Pentane","Hexane","Heptane","Butane"],a:0,e:"The longest continuous chain contains five carbons."},
+{q:"7. Which rule determines substituent numbering?",c:["Alphabet rule","Lowest locant rule","Priority rule","Octet rule"],a:1,e:"Chains are numbered to give substituents the lowest possible numbers."},
+{q:"8. What does the prefix “di-” indicate?",c:["Two carbons","Two double bonds","Two identical substituents","Two rings"],a:2,e:"The prefix di- means two identical substituents."},
+{q:"9. What is the general formula of cycloalkanes?",c:["CnH2n","CnH2n+2","CnHn","CnH2n−2"],a:0,e:"Cycloalkanes lose two hydrogens due to ring formation."},
+{q:"10. Which cycloalkane has the greatest ring strain?",c:["Cyclohexane","Cyclopentane","Cyclobutane","Cyclopropane"],a:3,e:"Cyclopropane has severe angle strain due to 60° bond angles."},
+
+{q:"11. Why is cyclohexane particularly stable?",c:["It has no hydrogens","It is aromatic","It adopts a chair conformation","It contains double bonds"],a:2,e:"The chair conformation minimizes angle and torsional strain."},
+{q:"12. Which compound requires numbering when named?",c:["Ethylcyclohexane","Methylcyclopentane","1,2-dimethylcyclobutane","Cyclohexane"],a:2,e:"Multiple substituents require numbering."},
+{q:"13. Which situation allows cis–trans isomerism?",c:["Single substituent on a ring","Two substituents on different ring carbons","Open-chain alkane","Branched alkane"],a:1,e:"Cis–trans requires two substituents on a ring."},
+{q:"14. In cis-1,2-dimethylcyclohexane, the methyl groups are:",c:["Both axial","Both equatorial","On the same side of the ring","On opposite sides"],a:2,e:"Cis means both substituents are on the same side of the ring."},
+{q:"15. Which is NOT an alkane property?",c:["Saturated","Only sigma bonds","Contains pi bonds","Low reactivity"],a:2,e:"Alkanes contain only sigma bonds."},
+
+{q:"16. What does alphabetical order affect in naming?",c:["Chain length","Substituent listing","Suffix","Hybridization"],a:1,e:"Substituents are listed alphabetically in the name."},
+{q:"17. What is the IUPAC name of a six-membered ring?",c:["Cyclopentane","Cyclohexane","Hexane","Cycloheptane"],a:1,e:"Six carbons in a ring is cyclohexane."},
+{q:"18. Which compound is NOT a cycloalkane?",c:["Cyclobutane","Cyclopentane","Cyclohexene","Cyclohexane"],a:2,e:"Cyclohexene contains a double bond."},
+{q:"19. What must remain fixed during naming?",c:["Hydrogens","Electron pairs","Carbon skeleton","Substituent order"],a:2,e:"The carbon skeleton must not be altered."},
+{q:"20. What defines structural isomers?",c:["Same name","Same connectivity","Same formula, different connectivity","Different formulas"],a:2,e:"Structural isomers differ in how atoms are connected."},
+
+{q:"21. Which compound has cis–trans isomers?",c:["Propane","Ethylcyclobutane","1,2-dimethylcyclopropane","2-methylpropane"],a:2,e:"Two substituents on a ring allow cis–trans isomerism."},
+{q:"22. What is an alkyl substituent?",c:["Functional group","Hydrogen","Carbon chain fragment","Ring"],a:2,e:"An alkyl group is derived from an alkane."},
+{q:"23. Why are cycloalkanes less flexible than alkanes?",c:["More hydrogens","Restricted rotation","Lower mass","Pi bonds"],a:1,e:"Rings restrict free rotation around C–C bonds."},
+{q:"24. Which name is correct?",c:["3-methylpentane","Pentane-3-methyl","Methylpentane","3-pentylmethane"],a:0,e:"Correct IUPAC order is locant–substituent–parent."},
+{q:"25. What determines cis vs trans?",c:["Axial/equatorial","Up/down orientation","Bond length","Electronegativity"],a:1,e:"Cis–trans depends on relative up/down positions."},
+
+{q:"26. What does “cyclo-” indicate?",c:["Double bond","Ring structure","Branched chain","Aromaticity"],a:1,e:"Cyclo- indicates a ring."},
+{q:"27. Which is the parent in ethylcyclopropane?",c:["Ethyl","Propane","Cyclopropane","Butane"],a:2,e:"The ring is the parent unless the substituent is longer."},
+{q:"28. What happens to hydrogens when a ring forms?",c:["Gain two","Lose two","Remain same","Lose four"],a:1,e:"Two hydrogens are lost to form a ring."},
+{q:"29. Which pair are structural isomers?",c:["Propane & ethane","Cyclobutane & butane","Butane & 2-methylpropane","Cyclohexane & hexane"],a:2,e:"They share the same formula but different connectivity."},
+{q:"30. Which concept explains identical bond lengths in rings?",c:["Resonance","Hybridization","Conformational analysis","Isomerism"],a:3,e:"Isomerism explains equivalent structures and properties."}
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

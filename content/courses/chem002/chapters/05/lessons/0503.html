@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 5 – Lesson 3: Alkenes – Cis–Trans and E–Z Designation</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color: #136f63; font-size: 2.1em; margin-bottom: 0.4em; }
+  h2 { color: #136f63; font-size: 1.6em; margin-top: 1.4em; }
+  h3 { color: #174ea6; font-size: 1.25em; margin: 0.6em 0; }
+
+  p { margin: 12px 0; }
+  ul { margin-left: 28px; }
+  .section { margin-bottom: 30px; }
+
+  .activity {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin: 20px 0;
+  }
+
+  .toggle-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  .toggle-btn:hover {
+    background: #0f5b52;
+  }
+
+  .answer {
+    display: none;
+    margin-top: 12px;
+    background: #eef3ff;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 17px;
+  }
+
+  .quiz-button {
+    display: inline-block;
+    background-color: #136f63;
+    color: white;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 22px;
+  }
+
+  .quiz-button:hover { background-color: #0f5b52; }
+
+  .note {
+    font-size: 1.3rem;
+    color: #555;
+  }
+
+  * { box-sizing: border-box; scroll-behavior: smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Alkenes: Cis–Trans and E–Z Designation</h1>
+
+<p class="note">
+This lesson focuses on identifying and naming geometric isomers of alkenes using both
+<strong>cis–trans</strong> and the more general <strong>E–Z</strong> system. You will practice deciding
+which system to use and how to apply each correctly.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. Why Alkenes Show Geometric Isomerism</h2>
+  <p>
+    Alkenes contain a <strong>C=C double bond</strong>. Unlike single bonds, double bonds cannot rotate freely.
+    This locks substituents into fixed positions in space.
+  </p>
+  <p>
+    As a result, two different spatial arrangements may exist — these are called
+    <strong>geometric (stereoisomers)</strong>.
+  </p>
+
+  <ul>
+    <li>Same molecular formula</li>
+    <li>Same atom connectivity</li>
+    <li>Different spatial arrangement</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 1: Concept Check</h3>
+    <p>Why don’t alkanes show cis–trans isomerism?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Alkanes contain only single bonds, which rotate freely.
+      Without restricted rotation, fixed spatial arrangements cannot exist.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. Cis–Trans Isomerism (Simple Cases)</h2>
+  <p>
+    The <strong>cis–trans system</strong> is used only when:
+  </p>
+  <ul>
+    <li>Each double-bonded carbon has <strong>one identical group</strong></li>
+    <li>Only two different groups are being compared</li>
+  </ul>
+
+  <p>
+    <strong>cis</strong> = identical groups on the same side  
+    <br>
+    <strong>trans</strong> = identical groups on opposite sides
+  </p>
+
+  <div class="activity">
+    <h3>Activity 2: Cis or Trans?</h3>
+    <p>
+      An alkene has a CH₃ group on each carbon of the double bond.
+      If the CH₃ groups are on opposite sides, what is the designation?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Trans</strong> — identical CH₃ groups are on opposite sides.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. Why Cis–Trans Is Not Always Enough</h2>
+  <p>
+    Cis–trans fails when <strong>all four substituents are different</strong>.
+    In such cases, there is no clear “identical group” to compare.
+  </p>
+
+  <p>
+    To solve this, chemists use the <strong>E–Z system</strong>,
+    which works for <em>all</em> alkenes.
+  </p>
+
+  <div class="activity">
+    <h3>Activity 3: Decide the System</h3>
+    <p>
+      An alkene has H, Cl, Br, and CH₃ attached to the double bond.
+      Which naming system must be used?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The <strong>E–Z system</strong> must be used because all four substituents are different.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. The E–Z System (Step-by-Step)</h2>
+
+  <h3>Step 1: Assign Priorities (CIP Rules)</h3>
+  <p>
+    Priority is based on <strong>atomic number</strong>.
+    The atom with the higher atomic number gets higher priority.
+  </p>
+
+  <ul>
+    <li>Br &gt; Cl &gt; S &gt; O &gt; N &gt; C &gt; H</li>
+  </ul>
+
+  <h3>Step 2: Compare High-Priority Groups</h3>
+  <ul>
+    <li><strong>Z</strong> (zusammen): high-priority groups on the same side</li>
+    <li><strong>E</strong> (entgegen): high-priority groups on opposite sides</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 4: Priority Check</h3>
+    <p>Which group has higher priority: –CH₂CH₃ or –CH₃?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      –CH₂CH₃ has higher priority because the first point of difference
+      involves a carbon bonded to another carbon instead of hydrogens.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Mixed Practice (Cis–Trans vs E–Z)</h2>
+
+  <div class="activity">
+    <h3>Practice 1</h3>
+    <p>
+      An alkene has H and CH₃ on each double-bonded carbon.
+      Which naming system is appropriate?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Cis–trans</strong> — each carbon has one identical group.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 2</h3>
+    <p>
+      An alkene has substituents H, F, Cl, and CH₃.
+      The higher-priority groups are on the same side.
+      What is the designation?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Z</strong> — highest-priority groups are on the same side.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 3</h3>
+    <p>
+      True or False: An alkene can be both cis and Z at the same time.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>True.</strong>
+      When conditions allow cis–trans naming, the cis isomer often corresponds to Z.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 4</h3>
+    <p>
+      Why is E–Z preferred in modern IUPAC naming?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Because it works for all alkenes and avoids ambiguity when four different groups are present.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 5</h3>
+    <p>
+      Which designation corresponds to lower steric repulsion in most cases?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>E</strong> (or trans) usually has lower steric repulsion
+      because bulky groups are farther apart.
+    </div>
+  </div>
+</div>
+  <!-- SECTION 6 -->
+<div class="section">
+  <h2>6. Extended Practice: Naming Alkenes with Cis–Trans and E–Z</h2>
+  <p class="note">
+    For each problem below, determine:
+    <strong>(1)</strong> the correct alkene name and
+    <strong>(2)</strong> whether cis–trans or E–Z notation is required.
+  </p>
+
+  <div class="activity">
+    <h3>Practice 6.1</h3>
+    <p>
+      An alkene has the structure CH₃–CH=CH–CH₃ with both CH₃ groups on the same side.
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/dnVtBU7.png" alt="cis-but-2-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Parent chain: 4 carbons → but-2-ene<br>
+      Identical groups present → cis–trans allowed<br>
+      Same side → <strong>cis-but-2-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.2</h3>
+    <p>
+      CH₃–CH=CH–CH₃ with CH₃ groups on opposite sides.
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/BZUifkO.png" alt="trans-but-2-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Parent: but-2-ene<br>
+      Opposite sides → <strong>trans-but-2-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.3</h3>
+    <p>
+      An alkene has substituents H and Br on one carbon,
+      and H and CH₃ on the other. Br and CH₃ are on the same side.
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/LGsFs9j.png" alt="(Z)-1-bromoprop-1-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      All four groups are different → use E–Z<br>
+      Priorities: Br &gt; H and CH₃ &gt; H<br>
+      High-priority groups on same side → <strong>Z</strong><br>
+      Parent chain: prop-1-ene<br>
+      Name: <strong>(Z)-1-bromoprop-1-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.4</h3>
+    <p>
+      CH₂=CH–CH₃
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/EVhEyfM.png" alt="prop-1-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      One carbon has two identical hydrogens → no geometric isomerism<br>
+      Name: <strong>prop-1-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.5</h3>
+    <p>
+      An alkene with substituents Cl and CH₃ on one carbon,
+      and H and C₂H₅ on the other. Cl and C₂H₅ are opposite.
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/t7ZUVPz.png" alt="(E)-2-chloropent-2-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Use E–Z system<br>
+      Priorities: Cl &gt; CH₃ and C₂H₅ &gt; H<br>
+      Opposite sides → <strong>E</strong><br>
+      Parent: pent-2-ene<br>
+      Name: <strong>(E)-2-chloropent-2-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.6</h3>
+    <p>
+      An alkene named (Z)-hex-3-ene.
+      What does the Z tell you about the substituents?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The highest-priority substituents on each double-bonded carbon
+      are on the <strong>same side</strong> of the C=C bond.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.7</h3>
+    <p>
+      CH₃–CH=C(CH₃)–CH₂–CH₃ 
+    </p><br>
+    <div class="image">
+    <img src="https://i.imgur.com/48FX0Qh.png" alt="(E)-3-methylpent-2-ene">
+  </div>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Parent: pent-2-ene<br>
+      All four substituents different → E–Z required<br>
+      Highest priority groups opposite → <strong>E</strong><br>
+      Name: <strong>(E)-3-methylpent-2-ene</strong>
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.8</h3>
+    <p>
+      True or False: cis-but-2-ene and (Z)-but-2-ene describe the same molecule.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>True.</strong><br>
+      In simple cases where cis–trans applies,
+      cis usually corresponds to Z.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.9</h3>
+    <p>
+      An alkene has four different substituents,
+      but the name given uses cis–trans.
+      Is this correct?
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>No.</strong><br>
+      Cis–trans cannot be used when all four substituents are different.
+      E–Z must be used instead.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 6.10</h3>
+    <p>
+      Which is generally more stable: (E)-hex-3-ene or (Z)-hex-3-ene?
+      Explain why.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>(E)-hex-3-ene</strong> is more stable because
+      bulky substituents are farther apart,
+      reducing steric repulsion.
+    </div>
+  </div>
+
+</div>
+
+
+<!-- KEY TERMS -->
+<div class="section">
+  <h2>Key Terms</h2>
+  <ul>
+    <li><strong>Geometric isomers:</strong> Isomers differing in spatial arrangement</li>
+    <li><strong>Cis:</strong> Identical groups on the same side</li>
+    <li><strong>Trans:</strong> Identical groups on opposite sides</li>
+    <li><strong>E–Z system:</strong> Universal system for alkene geometry</li>
+    <li><strong>CIP rules:</strong> Priority rules based on atomic number</li>
+    <li><strong>Stereoisomers:</strong> Same connectivity, different 3D arrangement</li>
+  </ul>
+</div>
+
+<div style="text-align:center;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Quiz →</button>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const ans = btn.nextElementSibling;
+    const open = ans.style.display === "block";
+    ans.style.display = open ? "none" : "block";
+    btn.textContent = open ? "Show Answer" : "Hide Answer";
+  }
+
+  document.getElementById("takeQuizBtn").addEventListener("click", () => {
+    window.parent.postMessage(
+      { type: "openQuiz", quiz: "chapter5_lesson3_quiz.html" },
+      "*"
+    );
+  });
+</script>
+
+</body>
+</html>

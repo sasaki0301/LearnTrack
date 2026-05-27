@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 5 – Lesson 4 Quiz: Cycloalkenes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #136f63;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+  }
+
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 20px;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05em;
+    transition: all 0.2s ease;
+  }
+
+  .choice:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .choice.selected { background: #174ea6; color: #fff; }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 15px;
+  }
+
+  .next-btn:hover { background: #0f5b52; }
+
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+    margin-top: 20px;
+  }
+
+  .stars {
+    font-size: 2.5em;
+    margin-top: 10px;
+  }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-btn {
+    background: #e8ecf8;
+    color: #174ea6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    cursor: pointer;
+  }
+
+  .quiz-btn.primary {
+    background: #136f63;
+    color: #fff;
+  }
+
+  .quiz-btn.primary:hover { background: #0f5b52; }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Lesson 4 Quiz – Cycloalkenes</h2>
+  <div class="progress-text" id="progressText"></div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+  {
+    q: "1. What defines a cycloalkene?",
+    c: [
+      "A cyclic hydrocarbon with only single bonds",
+      "A cyclic hydrocarbon containing at least one C=C double bond",
+      "An acyclic hydrocarbon with a ring substituent",
+      "A molecule containing both alkane and aromatic rings"
+    ],
+    a: 1,
+    e: "Cycloalkenes are ring-shaped hydrocarbons that contain at least one carbon–carbon double bond."
+  },
+  {
+    q: "2. What is the correct name for a six-membered ring with one double bond and no substituents?",
+    c: ["Cyclohexane", "Hexene", "Cyclohexene", "Benzene"],
+    a: 2,
+    e: "A six-carbon ring with one double bond is named cyclohexene."
+  },
+  {
+    q: "3. In naming cycloalkenes, where is the double bond placed by default?",
+    c: [
+      "Between the two highest-numbered carbons",
+      "Between carbon 1 and carbon 2",
+      "Wherever it appears in the drawing",
+      "At the end of the longest chain"
+    ],
+    a: 1,
+    e: "The double bond is always assigned between carbon 1 and carbon 2 in cycloalkenes."
+  },
+  {
+    q: "4. What is the correct name for a cyclopentene ring with a methyl substituent on carbon 3?",
+    c: [
+      "3-methylcyclopentane",
+      "1-methylcyclopentene",
+      "3-methylcyclopentene",
+      "methylcyclopentene"
+    ],
+    a: 2,
+    e: "The double bond is between C-1 and C-2, so the methyl group is correctly placed at C-3."
+  },
+  {
+    q: "5. Which rule is most important when numbering a cycloalkene?",
+    c: [
+      "Give substituents alphabetical priority",
+      "Number from the smallest ring",
+      "Give the double bond the lowest possible locants",
+      "Avoid numbering substituents"
+    ],
+    a: 2,
+    e: "The double bond always has priority in numbering and must receive the lowest locants."
+  },
+  {
+    q: "6. A cyclohexene has an ethyl substituent on carbon 4. What is its name?",
+    c: [
+      "4-ethylcyclohexane",
+      "ethylcyclohexene",
+      "4-ethylcyclohexene",
+      "1-ethylcyclohexene"
+    ],
+    a: 2,
+    e: "The parent is cyclohexene and the ethyl group is correctly numbered at carbon 4."
+  },
+  {
+    q: "7. Which statement about cycloalkenes is TRUE?",
+    c: [
+      "They cannot show cis–trans isomerism",
+      "They are always aromatic",
+      "They are unsaturated hydrocarbons",
+      "They contain triple bonds"
+    ],
+    a: 2,
+    e: "Cycloalkenes contain at least one C=C bond, making them unsaturated."
+  },
+  {
+    q: "8. What is the correct name for a cyclobutene with two methyl groups on carbon 1 and 3?",
+    c: [
+      "1,3-dimethylcyclobutane",
+      "1,3-dimethylcyclobutene",
+      "3,1-dimethylcyclobutene",
+      "dimethylcyclobutene"
+    ],
+    a: 1,
+    e: "Substituents are numbered based on the double bond and listed with correct locants."
+  }
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

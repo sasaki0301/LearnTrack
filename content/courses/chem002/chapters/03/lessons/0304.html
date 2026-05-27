@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 – Lesson 4: Acids and Bases (Arrhenius, Brønsted–Lowry, Lewis)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #fafafa;
+      color: #222;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.8;
+      font-size: 24px;
+    }
+
+    h1 {
+      color: #136f63;
+      font-size: 2.1em;
+      margin-bottom: 0.4em;
+    }
+
+    h2 {
+      color: #136f63;
+      font-size: 1.6em;
+      margin-top: 1.4em;
+      margin-bottom: 0.3em;
+    }
+
+    h3 {
+      color: #174ea6;
+      font-size: 1.25em;
+      margin: 0.6em 0;
+    }
+
+    p { margin: 12px 0; }
+    ul { margin-left: 28px; }
+
+    .section {
+      margin-bottom: 28px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .image, .video {
+      text-align: center;
+      margin: 22px 0;
+    }
+
+    img {
+      border-radius: 10px;
+      width: 80%;
+      max-width: 540px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    iframe {
+      width: 90%;
+      max-width: 760px;
+      height: 430px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* Activity block */
+    .activity {
+      background: #f9fbff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin: 18px 0;
+      border-left: 5px solid #136f63;
+    }
+
+    .activity h3 {
+      margin-top: 0;
+    }
+
+    .toggle-btn {
+      background: #136f63;
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: 0.18s;
+      margin-top: 8px;
+    }
+
+    .toggle-btn:hover {
+      background: #0f5b52;
+      transform: translateY(-1px);
+    }
+
+    .answer {
+      display: none;
+      margin-top: 12px;
+      background: #eef3ff;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+
+    /* Quiz / navigation button */
+    .quiz-button {
+      display: inline-block;
+      background-color: #136f63;
+      color: white;
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 22px;
+    }
+
+    .quiz-button:hover {
+      background-color: #0f5b52;
+    }
+
+    .note {
+      font-size: 1.3rem;
+      color: #555;
+      margin-top: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Acids and Bases – Arrhenius, Brønsted–Lowry, and Lewis</h1>
+  <p class="note">
+    In this lesson, you’ll review the three major definitions of acids and bases, learn how to recognize conjugate pairs,
+    and practice identifying strong vs. weak acids and bases. This general chemistry foundation will prepare you
+    for the next lesson on <strong>organic acids and bases</strong>.
+  </p>
+
+  <!-- SECTION 1: Arrhenius -->
+  <div class="section">
+    <h2>1. Arrhenius Acids and Bases</h2>
+    <p>
+      The <strong>Arrhenius definition</strong> is the simplest way to think about acids and bases in aqueous (water) solutions:
+    </p>
+    <ul>
+      <li><strong>Arrhenius acid:</strong> produces H⁺ (or H₃O⁺) ions in water.</li>
+      <li><strong>Arrhenius base:</strong> produces OH⁻ ions in water.</li>
+    </ul>
+    <p>Examples:</p>
+    <ul>
+      <li>HCl(aq) → H⁺(aq) + Cl⁻(aq)</li>
+      <li>NaOH(aq) → Na⁺(aq) + OH⁻(aq)</li>
+    </ul>
+    <p>
+      This definition works well for many strong acids and bases in water but is limited because it only applies to
+      aqueous solutions and cannot describe all acid–base reactions.
+    </p>
+
+    <div class="activity">
+      <h3>Activity 1: Arrhenius Check</h3>
+      <p>Which of the following substances is an Arrhenius base in water?</p>
+      <ul>
+        <li>A) HNO₃</li>
+        <li>B) NaOH</li>
+        <li>C) HCl</li>
+        <li>D) CO₂</li>
+      </ul>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer: B) NaOH</strong><br>
+        NaOH dissociates in water to release OH⁻, so it is an Arrhenius base.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: Brønsted–Lowry -->
+  <div class="section">
+    <h2>2. Brønsted–Lowry Acids and Bases</h2>
+    <p>
+      The <strong>Brønsted–Lowry</strong> definition is more general and is very important in chemistry:
+    </p>
+    <ul>
+      <li><strong>Brønsted–Lowry acid:</strong> proton (H⁺) <strong>donor</strong>.</li>
+      <li><strong>Brønsted–Lowry base:</strong> proton (H⁺) <strong>acceptor</strong>.</li>
+    </ul>
+    <p>
+      This definition does not require water. Any reaction where one species donates H⁺ and another accepts it
+      is an acid–base reaction.
+    </p>
+
+    <h3>Conjugate Acid–Base Pairs</h3>
+    <p>In every Brønsted–Lowry reaction, acids and bases form <strong>conjugate pairs</strong>:</p>
+    <ul>
+      <li>The acid becomes its <strong>conjugate base</strong> after losing H⁺.</li>
+      <li>The base becomes its <strong>conjugate acid</strong> after gaining H⁺.</li>
+    </ul>
+
+    <p><strong>Example:</strong> HCl + H₂O ⇌ H₃O⁺ + Cl⁻</p>
+    <ul>
+      <li>HCl = acid → conjugate base = Cl⁻</li>
+      <li>H₂O = base → conjugate acid = H₃O⁺</li>
+    </ul>
+
+    <div class="activity">
+      <h3>Activity 2: Identify Conjugate Pairs</h3>
+      <p>In the reaction: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</p>
+      <p>Identify the acid, base, conjugate acid, and conjugate base.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>Base: NH₃ (accepts H⁺)</li>
+          <li>Conjugate acid: NH₄⁺ (NH₃ after gaining H⁺)</li>
+          <li>Acid: H₂O (donates H⁺)</li>
+          <li>Conjugate base: OH⁻ (H₂O after losing H⁺)</li>
+        </ul>
+        <p>Every acid–base reaction has two conjugate pairs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: Lewis -->
+  <div class="section">
+    <h2>3. Lewis Acids and Bases</h2>
+    <p>
+      The <strong>Lewis definition</strong> focuses on electron pairs rather than protons:
+    </p>
+    <ul>
+      <li><strong>Lewis acid:</strong> electron pair <strong>acceptor</strong>.</li>
+      <li><strong>Lewis base:</strong> electron pair <strong>donor</strong>.</li>
+    </ul>
+    <p>
+      Many metal ions and electron-poor molecules act as Lewis acids, while species with lone pairs (like NH₃, H₂O)
+      often act as Lewis bases.
+    </p>
+
+    <p><strong>Example:</strong> BF₃ + NH₃ → F₃B←NH₃</p>
+    <ul>
+      <li>BF₃ is the Lewis acid (accepts a lone pair).</li>
+      <li>NH₃ is the Lewis base (donates its lone pair on N).</li>
+      <li>The arrow indicates that the lone pair of electrons from nitrogen is donated to the vacant orbital of boron to form a single bond.</li> 
+    </ul>
+
+    <div class="activity">
+      <h3>Activity 3: Brønsted vs Lewis</h3>
+      <p>
+        In the reaction: H⁺ + :OH⁻ → H₂O  
+        (The colon “:” represents a lone pair on oxygen.)
+      </p>
+      <p>Classify H⁺ and OH⁻ as Brønsted and Lewis acid/base.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>H⁺: Brønsted acid (proton donor), Lewis acid (accepts an electron pair).</li>
+          <li>OH⁻: Brønsted base (proton acceptor), Lewis base (donates an electron pair).</li>
+        </ul>
+        <p>The same species can be described with both models.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Strong vs Weak -->
+  <div class="section">
+    <h2>4. Strong vs Weak Acids and Bases</h2>
+    <p>
+      <strong>Strong acids/bases</strong> completely ionize in water.  
+      <strong>Weak acids/bases</strong> only partially ionize.
+    </p>
+
+    <h3>Examples of Strong Acids (in water)</h3>
+    <ul>
+      <li>HCl, HBr, HI</li>
+      <li>HNO₃, H₂SO₄, HClO₄</li>
+    </ul>
+
+    <h3>Examples of Strong Bases (in water)</h3>
+    <ul>
+      <li>Group 1 hydroxides: NaOH, KOH</li>
+      <li>Some Group 2 hydroxides: Ca(OH)₂, Ba(OH)₂</li>
+    </ul>
+
+    <p>
+      Weak acids and bases (like CH₃COOH or NH₃) exist in equilibrium between ionized and unionized forms.
+    </p>
+
+    <div class="activity">
+      <h3>Activity 4: Classify Strength</h3>
+      <p>Classify each as strong acid, weak acid, strong base, or weak base in water:</p>
+      <ul>
+        <li>A) HCl</li>
+        <li>B) CH₃COOH</li>
+        <li>C) NaOH</li>
+        <li>D) NH₃</li>
+      </ul>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <ul>
+          <li>HCl → strong acid</li>
+          <li>CH₃COOH → weak acid</li>
+          <li>NaOH → strong base</li>
+          <li>NH₃ → weak base</li>
+        </ul>
+        <p>Strong = almost fully ionized; weak = partially ionized at equilibrium.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Amphoteric & Water -->
+  <div class="section">
+    <h2>5. Amphoteric Substances and Water</h2>
+    <p>
+      Some substances can act as either an acid or a base depending on the reaction. These are called
+      <strong>amphoteric</strong> (or amphiprotic if Brønsted).
+    </p>
+    <p><strong>Water (H₂O)</strong> is a classic example:</p>
+    <ul>
+      <li>With a strong acid (like HCl), H₂O acts as a base: HCl + H₂O → H₃O⁺ + Cl⁻</li>
+      <li>With a strong base (like NH₃), H₂O acts as an acid: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</li>
+    </ul>
+
+    <div class="activity">
+      <h3>Activity 5: Amphoteric Check</h3>
+      <p>
+        In the reaction: HCO₃⁻ + H₂O ⇌ H₂CO₃ + OH⁻  
+        Is HCO₃⁻ acting as an acid or a base?
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>HCO₃⁻ is acting as an acid.</strong><br>
+        It donates a proton (H⁺) to water to form H₂CO₃, while water becomes OH⁻.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: pH and pOH Intro -->
+  <div class="section">
+    <h2>6. pH and pOH (Quick Overview)</h2>
+    <p>
+      The <strong>pH scale</strong> measures the acidity of a solution based on the concentration of H⁺ (or H₃O⁺).
+    </p>
+    <ul>
+      <li>pH &lt; 7 → acidic</li>
+      <li>pH = 7 → neutral (pure water at 25 °C)</li>
+      <li>pH &gt; 7 → basic (alkaline)</li>
+    </ul>
+    <p>
+      In more advanced work, you will use <strong>pH, pOH, and pKₐ</strong> to compare acid strength. For now, remember:
+      lower pH = more acidic; higher pH = more basic.
+    </p>
+
+    <div class="activity">
+      <h3>Activity 6: Simple pH Comparison</h3>
+      <p>
+        Which solution is more acidic: one with pH 3.0 or one with pH 6.0?  
+        Briefly explain.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        The solution with <strong>pH 3.0</strong> is more acidic.<br>
+        Each unit decrease in pH represents a tenfold increase in [H⁺], so pH 3 has much more H⁺ than pH 6.
+      </div>
+    </div>
+  </div>
+  
+  <div class="section">
+  <h2>Watch: Conjugate Acid Base Pairs, Arrhenius, Bronsted Lowry and Lewis Definition - Chemistry</h2>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/OP6RKqSp1Xw" title="Conjugate Acid Base Pairs" allowfullscreen></iframe>
+  </div>
+</div> 
+
+  <!-- EXTRA PRACTICE SECTION -->
+<div class="section">
+  <h2>7. Additional Practice Problems</h2>
+  <p class="note">Try these without looking at the answers first. These cover Arrhenius, Brønsted–Lowry, Lewis definitions, conjugate pairs, strength, and amphoterism.</p>
+
+  <!-- PRACTICE 1 -->
+  <div class="activity">
+    <h3>Practice 1: Classify Each Species</h3>
+    <p>For each substance below, classify it as an Arrhenius acid, Arrhenius base, or neither:</p>
+    <ul>
+      <li>A) HBr</li>
+      <li>B) Ca(OH)₂</li>
+      <li>C) NH₃</li>
+      <li>D) CH₄</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <ul>
+        <li><strong>A) HBr → Arrhenius acid</strong> (forms H⁺ in water)</li>
+        <li><strong>B) Ca(OH)₂ → Arrhenius base</strong> (releases OH⁻)</li>
+        <li><strong>C) NH₃ → Neither (Arrhenius)</strong>, because it does not contain OH⁻ — but it is a Brønsted base.</li>
+        <li><strong>D) CH₄ → Neither</strong> (no acid–base behavior in water)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRACTICE 2 -->
+  <div class="activity">
+    <h3>Practice 2: Identify All Acid–Base Roles</h3>
+    <p>For the reaction:  
+      <strong>HSO₄⁻ + H₂O ⇌ H₃O⁺ + SO₄²⁻</strong>  
+      Identify:
+      <br>• Acid  
+      <br>• Base  
+      <br>• Conjugate acid  
+      <br>• Conjugate base  
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <ul>
+        <li>HSO₄⁻ → <strong>acid</strong> (donates H⁺)</li>
+        <li>H₂O → <strong>base</strong> (accepts H⁺)</li>
+        <li>H₃O⁺ → <strong>conjugate acid</strong></li>
+        <li>SO₄²⁻ → <strong>conjugate base</strong></li>
+      </ul>
+      <p>HSO₄⁻ is amphiprotic, but here it acts as an acid.</p>
+    </div>
+  </div>
+
+  <!-- PRACTICE 3 -->
+  <div class="activity">
+    <h3>Practice 3: Lewis Acid or Lewis Base?</h3>
+    <p>Determine whether each is a Lewis acid or Lewis base:</p>
+    <ul>
+      <li>A) BF₃</li>
+      <li>B) H₂O</li>
+      <li>C) Fe³⁺</li>
+      <li>D) NH₃</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <ul>
+        <li><strong>BF₃ → Lewis acid</strong> (electron pair acceptor)</li>
+        <li><strong>H₂O → Lewis base</strong> (lone pairs on oxygen)</li>
+        <li><strong>Fe³⁺ → Lewis acid</strong> (electron-poor metal ion)</li>
+        <li><strong>NH₃ → Lewis base</strong> (donates lone pair on N)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRACTICE 4 -->
+  <div class="activity">
+    <h3>Practice 4: Predict Reaction Direction</h3>
+    <p>Which direction is favored in this Brønsted–Lowry acid–base equilibrium?</p>
+    <p><strong>HCl + H₂O ⇌ H₃O⁺ + Cl⁻</strong></p>
+    <p>Explain based on acid strength.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <p><strong>The reaction strongly favors the products (→ direction).</strong></p>
+      <p>
+        HCl is a strong acid, which means it donates its proton completely.  
+        Strong acids have weak conjugate bases (Cl⁻), so equilibrium lies almost entirely on the right.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRACTICE 5 -->
+  <div class="activity">
+    <h3>Practice 5: Amphoteric Behavior Analysis</h3>
+    <p>Show whether HCO₃⁻ acts as an acid or a base in each reaction:</p>
+    <p>A) HCO₃⁻ + OH⁻ → CO₃²⁻ + H₂O  
+       B) HCO₃⁻ + H₃O⁺ → H₂CO₃ + H₂O</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <ul>
+        <li>A) <strong>HCO₃⁻ acts as an acid</strong> (donates H⁺ to OH⁻)</li>
+        <li>B) <strong>HCO₃⁻ acts as a base</strong> (accepts H⁺ from H₃O⁺)</li>
+      </ul>
+      <p>HCO₃⁻ is amphiprotic: it can donate or accept H⁺ depending on the environment.</p>
+    </div>
+  </div>
+
+  <!-- PRACTICE 6 -->
+  <div class="activity">
+    <h3>Practice 6: pH and Strength Reasoning</h3>
+    <p>A solution has a pH of 2. Another has a pH of 5.</p>
+    <p>How many times more acidic is the pH 2 solution? Explain.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <p><strong>The pH 2 solution is 1000× more acidic.</strong></p>
+      <p>Each pH unit = ×10 difference in [H⁺].  
+        Difference = 5 − 2 = 3 → 10³ = 1000×.</p>
+    </div>
+  </div>
+
+</div>
+<!-- END EXTRA PRACTICE SECTION -->
+
+
+  <!-- KEY TERMS -->
+  <div class="section">
+    <h2>Key Terms</h2>
+    <ul>
+      <li><strong>Arrhenius acid:</strong> Produces H⁺ (or H₃O⁺) in water.</li>
+      <li><strong>Arrhenius base:</strong> Produces OH⁻ in water.</li>
+      <li><strong>Brønsted–Lowry acid:</strong> Proton (H⁺) donor.</li>
+      <li><strong>Brønsted–Lowry base:</strong> Proton (H⁺) acceptor.</li>
+      <li><strong>Conjugate acid–base pair:</strong> Two species that differ by one H⁺.</li>
+      <li><strong>Lewis acid:</strong> Electron pair acceptor.</li>
+      <li><strong>Lewis base:</strong> Electron pair donor.</li>
+      <li><strong>Strong acid/base:</strong> Almost completely ionized in water.</li>
+      <li><strong>Weak acid/base:</strong> Only partially ionized; exists in equilibrium.</li>
+      <li><strong>Amphoteric (amphiprotic):</strong> Can act as acid or base (e.g., H₂O, HCO₃⁻).</li>
+      <li><strong>pH:</strong> Measure of acidity based on [H⁺].</li>
+    </ul>
+  </div>
+
+  <div style="text-align:center; margin-top:25px;">
+    <button class="quiz-button" id="takeQuizBtn">Take the Lesson Quiz →</button>
+  </div>
+
+  <script>
+    function toggleAnswer(btn) {
+      const box = btn.nextElementSibling;
+      const isVisible = box.style.display === "block";
+      box.style.display = isVisible ? "none" : "block";
+      btn.textContent = isVisible ? "Show Answer" : "Hide Answer";
+    }
+
+    document.getElementById("takeQuizBtn").addEventListener("click", () => {
+      window.parent.postMessage(
+        { type: "openQuiz", quiz: "chapter3_lesson4_quiz.html" },
+        "*"
+      );
+    });
+  </script>
+
+</body>
+</html>

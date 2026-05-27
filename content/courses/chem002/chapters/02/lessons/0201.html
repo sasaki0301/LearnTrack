@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 2 – Lesson 1: Review of Atomic Structure</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f0fbf7, #f3f7ff);
+    color: #222;
+    margin: 0;
+    padding: 32px 24px;
+    line-height: 1.7;
+    font-size: 22px;
+  }
+
+  h1 {
+    color: #136f63;
+    font-size: 2.2em;
+    margin-bottom: 0.6em;
+  }
+
+  h2 {
+    color: #136f63;
+    font-size: 1.55em;
+    margin-top: 1.3em;
+    margin-bottom: 0.4em;
+  }
+
+  h3 {
+    color: #174ea6;
+    font-size: 1.2em;
+    margin: 0.6em 0 0.4em 0;
+  }
+
+  p { margin: 12px 0; }
+
+  .section {
+    background: #fff;
+    padding: 24px 28px;
+    border-radius: 14px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  }
+
+  .image, .video {
+    text-align: center;
+    margin: 22px 0;
+  }
+
+  img {
+    border-radius: 10px;
+    width: 85%;
+    max-width: 560px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  iframe {
+    width: 90%;
+    max-width: 760px;
+    height: 430px;
+    border-radius: 12px;
+  }
+
+  ul { margin-left: 26px; }
+
+  .activity {
+    background: #f9fbff;
+    border-left: 5px solid #136f63;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 16px;
+  }
+
+  .toggle-btn {
+    background: #136f63;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+  }
+
+  .toggle-btn:hover {
+    background: #0f5b52;
+    transform: translateY(-1px);
+  }
+
+  .answer {
+    display: none;
+    margin-top: 12px;
+    background: #eef3ff;
+    padding: 14px;
+    border-radius: 8px;
+  }
+
+  .quiz-button {
+    background-color: #136f63;
+    color: white;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 22px;
+  }
+
+  .quiz-button:hover {
+    background-color: #0f5b52;
+  }
+
+  .note {
+    font-size: 0.9em;
+    color: #555;
+  }
+
+</style>
+</head>
+
+<body>
+
+<h1>Review of Atomic Structure</h1>
+
+<p>
+Understanding atomic structure is essential for studying organic chemistry.  
+Atoms form all matter, and the way electrons are arranged around the nucleus explains bonding, reactions, and molecular behavior.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. Structure of the Atom</h2>
+  <p>
+    An atom is composed of three main subatomic particles:
+  </p>
+  <ul>
+    <li><strong>Protons</strong> – positively charged, found in the nucleus</li>
+    <li><strong>Neutrons</strong> – neutral, also in the nucleus</li>
+    <li><strong>Electrons</strong> – negatively charged, found in energy levels around the nucleus</li>
+  </ul>
+
+  <div class="image">
+    <img src="https://d20khd7ddkh5ls.cloudfront.net/bohrs_atomic_model.jpeg" />
+    <p class="note"><em>Bohr Model: electrons orbit the nucleus in defined shells or energy levels.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 1 — Counting Subatomic Particles</h3>
+    <p>A sodium atom (Na) has atomic number 11 and mass number 23.  
+       How many protons, neutrons, and electrons does it have?</p>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Answer:</strong><br>
+      Protons: 11<br>
+      Electrons: 11<br>
+      Neutrons: 23 − 11 = 12<br><br>
+      <em>The atomic number equals protons and electrons; subtracting gives neutrons.</em>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. Atomic Number, Mass Number, and Isotopes</h2>
+  <p>
+    - <strong>Atomic number (Z)</strong> = number of protons<br>
+    - <strong>Mass number (A)</strong> = protons + neutrons<br>
+    - <strong>Isotopes</strong> are atoms of the same element with different numbers of neutrons
+  </p>
+
+  <div class="activity">
+    <h3>Activity 2 — Identifying Isotopes</h3>
+    <p>Why are Carbon-12 and Carbon-14 considered isotopes of the same element?</p>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Both have 6 protons (so both are carbon),  
+      but Carbon-12 has 6 neutrons while Carbon-14 has 8 neutrons.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. Electron Configuration</h2>
+  <p>
+    Electrons occupy specific energy levels or “shells.”  
+    Their arrangement determines how atoms bond and interact with other atoms.
+  </p>
+
+  <div class="image">
+    <img src="https://ibchemninja.weebly.com/uploads/4/9/2/5/49255073/2172354_orig.png" />
+    <p class="note"><em>Electron shells fill in specific order.  
+    The electrons farthest from the nucleus determine reactivity.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 3 — Electron Configuration Practice</h3>
+    <p>Write the electron configuration of oxygen (atomic number = 8).</p>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Electron configuration:</strong> 1s² 2s² 2p⁴<br>
+      <em>First 2 fill the 1s orbital, next 2 fill 2s, remaining 4 go to 2p.</em>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: VIDEO -->
+<div class="section">
+  <h2>🎥 Video Lesson: Electron Configuration Basics</h2>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/NIwcDnFjj98" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- SECTION 5: KEY TAKEAWAYS -->
+<div class="section">
+  <h2>Key Takeaways</h2>
+  <ul>
+    <li>Atoms consist of protons, neutrons, and electrons.</li>
+    <li>Atomic number identifies an element; mass number counts protons + neutrons.</li>
+    <li>Isotopes differ in number of neutrons.</li>
+    <li>Electron configuration determines bonding and chemical behavior.</li>
+  </ul>
+</div>
+
+<!-- KEY TERMS -->
+<div class="section">
+  <h2>Key Terms</h2>
+  <ul>
+    <li><strong>Proton</strong> – positively charged particle in the nucleus.</li>
+    <li><strong>Neutron</strong> – neutral particle in the nucleus.</li>
+    <li><strong>Electron</strong> – negatively charged particle in energy levels.</li>
+    <li><strong>Atomic number (Z)</strong> – number of protons.</li>
+    <li><strong>Mass number (A)</strong> – total of protons + neutrons.</li>
+    <li><strong>Isotope</strong> – atoms with same protons but different neutrons.</li>
+    <li><strong>Electron configuration</strong> – arrangement of electrons in shells.</li>
+  </ul>
+</div>
+
+<!-- QUIZ BUTTON -->
+<div style="text-align:center; margin-top:25px;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Lesson Quiz →</button>
+</div>
+
+<script>
+function toggleAnswer(btn) {
+  const ans = btn.nextElementSibling;
+  const open = ans.style.display === "block";
+  ans.style.display = open ? "none" : "block";
+  btn.textContent = open ? "Show Answer" : "Hide Answer";
+}
+
+document.getElementById("takeQuizBtn").addEventListener("click", () => {
+  window.parent.postMessage({
+    type: "openQuiz",
+    quiz: "chapter2_lesson1_quiz.html"
+  }, "*");
+});
+</script>
+
+</body>
+</html>

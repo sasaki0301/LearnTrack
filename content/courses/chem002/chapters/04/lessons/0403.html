@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 4 – Lesson 3: Naming Alkanes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color:#136f63; font-size:2.1em; margin-bottom:0.4em; }
+  h2 { color:#136f63; font-size:1.6em; margin-top:1.4em; margin-bottom:0.3em; }
+  h3 { color:#174ea6; font-size:1.25em; margin:0.6em 0; }
+  p { margin:12px 0; }
+  ul { margin-left:26px; }
+  .section { margin-bottom:32px; }
+
+  .image { text-align:center; margin:20px 0; }
+  img {
+    width:80%;
+    max-width:540px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Activity blocks */
+  .activity {
+    background:#fff;
+    border-radius:12px;
+    padding:16px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+    margin:20px 0;
+  }
+
+  .toggle-btn {
+    background:#136f63;
+    color:#fff;
+    border:none;
+    padding:9px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:16px;
+    transition:0.18s;
+    margin-top:8px;
+  }
+
+  .toggle-btn:hover {
+    background:#0f5b52;
+    transform:translateY(-1px);
+  }
+
+  .answer {
+    display:none;
+    margin-top:12px;
+    background:#eef3ff;
+    padding:14px;
+    border-radius:8px;
+    font-size:17px;
+  }
+
+  .quiz-button {
+    display:inline-block;
+    background:#136f63;
+    color:white;
+    padding:13px 26px;
+    border-radius:10px;
+    border:none;
+    font-weight:bold;
+    font-size:17px;
+    cursor:pointer;
+    transition:.2s;
+    margin-top:22px;
+  }
+
+  .quiz-button:hover { background:#0f5b52; }
+
+  .note { font-size:1.3rem; color:#555; margin-top:6px; }
+
+  * { box-sizing:border-box; scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Naming Alkanes</h1>
+<p class="note">
+This lesson teaches you how to assign correct IUPAC names to straight-chain and branched alkanes. You will learn how to identify the parent chain, number carbons correctly, name substituents, and assemble the final name.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. What Are Alkanes?</h2>
+  <p>
+    Alkanes are hydrocarbons containing only single bonds (C–C and C–H).  
+    Their names end in <strong>-ane</strong>.
+  </p>
+
+  <p><strong>General formula:</strong> CₙH₂ₙ₊₂</p>
+
+  <div class="image">
+    <img src="https://i.imgur.com/8zKsrDV.jpeg" alt="Straight-chain alkanes">
+    <p class="note"><em>Straight-chain alkanes grow by adding CH₂ groups.</em></p>
+  </div>
+
+  <h3>Common Parent Chain Names</h3>
+  <ul>
+    <li>1 carbon → <strong>methane</strong></li>
+    <li>2 carbons → <strong>ethane</strong></li>
+    <li>3 carbons → <strong>propane</strong></li>
+    <li>4 carbons → <strong>butane</strong></li>
+    <li>5+ carbons → pentane, hexane, heptane, octane...</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 1: Quick Check</h3>
+    <p>Name the straight-chain alkane with 7 carbons.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer"><strong>Heptane</strong> (7 carbons → hept- + ane).</div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. The IUPAC Naming Steps for Branched Alkanes</h2>
+
+  <style>
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 22px;
+      font-size: 22px;
+    }
+    .steps-grid div {
+      padding: 10px 14px;
+    }
+    .step-title {
+      font-weight: 700;
+      color: #174ea6;
+      margin-bottom: 6px;
+    }
+    .step-img {
+      text-align: center;
+    }
+    .step-img img {
+      width: 90%;
+      max-width: 320px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    /* Responsive */
+    @media(max-width: 780px){
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Step 1 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">1. Find the longest continuous carbon chain</p>
+      <p>This chain becomes the <strong>parent chain</strong> and determines the base name (meth-, eth-, prop-, pent-, etc.). Always select the chain with the most carbons—even if another one “looks straighter”.</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/tyElqo2.png" alt="Identify longest chain">
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">2. Number the chain</p>
+      <p>Start numbering from the end that gives substituents the <strong>lowest possible locants</strong>. If a tie occurs, use the next rule (alphabetical priority).</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/sofm7sg.png" alt="Numbering chain">
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">3. Identify substituents</p>
+      <p>Anything attached to the parent chain is a substituent (methyl, ethyl, propyl, halogens, nitro, etc.). Highlight these groups and note where they are attached.</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/DXjSFBP.png" alt="Identify substituent methyl group">
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">4. Assign locants and combine</p>
+      <p>Attach the carbon number to each substituent using a hyphen (e.g., 2-methyl). Separate multiple locants with commas.</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/DXjSFBP.png" alt="Assign locants">
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">5. Add multiplicative prefixes</p>
+      <p>If substituents repeat, use <strong>di-, tri-, tetra-</strong> (2,2-dimethyl or 2,3,4-trimethyl). Locants must match the count.</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/DXjSFBP.png" alt="Dimethyl example">
+    </div>
+  </div>
+
+  <!-- Step 6 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">6. Select the suffix</p>
+      <p>Alkanes always end in <strong>-ane</strong>. For this lesson, we focus only on simple, saturated hydrocarbons.</p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/gqVsi7Z.png" alt="Select suffix">
+    </div>
+  </div>
+
+  <!-- Step 7 -->
+  <div class="steps-grid">
+    <div>
+      <p class="step-title">7. Combine everything</p>
+      <p>Final format: <strong>Locants + Substituent(s) + Parent + Suffix</strong>  
+      <br>E.g., <strong>2,3-dimethylpentane</strong></p>
+    </div>
+    <div class="step-img">
+      <img src="https://i.imgur.com/gqVsi7Z.png" alt="Combine IUPAC name">
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 2: Which Is the Parent Chain?</h3>
+    <p>Look at this branched structure. Which chain should be the parent?</p>
+    <img src="https://i.imgur.com/6HT42L9.png" alt="Branched chain example" style="max-width:300px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The longest chain contains <strong>6 carbons</strong> (hexane), even if another path “looks straight.”  
+      Always choose the path with most carbons, not the visually straight one.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. Examples</h2>
+
+  <h3>Example 1</h3>
+  <div class="image">
+    <img src="https://i.imgur.com/r8XPFqI.png" alt="Example 1 skeleton">
+  </div>
+
+  <ol>
+    <li>Longest chain → 5 carbons (pentane)</li>
+    <li>Number from left (closest substituent).</li>
+    <li>Methyl on carbon 2.</li>
+    <li>Name: <strong>2-methylpentane</strong></li>
+  </ol>
+
+  <div class="activity">
+    <h3>Activity 3: Practice Naming</h3>
+    <p>Name this structure:</p>
+    <img src="https://i.imgur.com/pMh6yuG.png" alt="Naming example" style="max-width:300px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Longest chain: 4 carbons → butane<br>  
+      Substituent: methyl at carbon 2<br>  
+      <strong>Name: 2-methylbutane</strong>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. Multiple Substituents</h2>
+
+  <p>If the same substituent appears more than once, use prefixes:</p>
+
+  <ul>
+    <li>2 substituents → di-</li>
+    <li>3 substituents → tri-</li>
+    <li>4 substituents → tetra-</li>
+  </ul>
+
+  <div class="image">
+    <img src="https://i.imgur.com/37eoyRd.png" alt="dimethyl example" />
+  </div>
+
+  <p><strong>Correct name:</strong> 2,3-dimethylpentane</p>
+
+  <div class="activity">
+    <h3>Activity 4: Identify the Substituents</h3>
+    <p>How many substituents are present in the molecule above?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      There are <strong>two methyl groups</strong> (on carbons 2 and 3).
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Alphabetical Order</h2>
+
+  <p>Substituents must be listed in alphabetical order.  
+     Prefixes like <em>di-, tri-, sec-, tert-</em> are NOT used for ordering.</p>
+
+  <div class="activity">
+    <h3>Activity 5: Alphabetical Order Check</h3>
+    <p>Which comes first in naming?</p>
+    <ul>
+      <li>ethyl</li>
+      <li>methyl</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer"><strong>ethyl</strong> comes first (E before M).</div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <h2>6. End-of-Lesson Practice</h2>
+
+  <div class="activity">
+    <h3>Practice 1</h3>
+    <p>Name this alkane:</p>
+    <img src="https://i.imgur.com/NGvYtEQ.png" style="max-width:280px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">3-ethyl-2-methylhexane</div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 2</h3>
+    <p>Name this structure:</p>
+    <img src="https://i.imgur.com/W1Dgn4i.png" style="max-width:300px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">2,2-dimethylbutane</div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 3</h3>
+    <p>Name this branched structure:</p>
+    <img src="https://i.imgur.com/m9wFKZf.png" style="max-width:300px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">4-ethyl-3-methylheptane</div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 4</h3>
+    <p>Name this alkane:</p>
+    <img src="https://i.imgur.com/aGhT25B.png" style="max-width:300px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">3-methylhexane</div>
+  </div>
+
+  <div class="activity">
+    <h3>Practice 5</h3>
+    <p>Name this structure:</p>
+    <img src="https://i.imgur.com/e3yJmy7.png" style="max-width:280px;"><br>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">2,3,4-trimethylpentane</div>
+  </div>
+
+</div>
+
+<div style="text-align:center; margin-top:18px;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Quiz →</button>
+</div>
+
+<script>
+function toggleAnswer(btn){
+  const box = btn.nextElementSibling;
+  const show = box.style.display==="block";
+  box.style.display = show ? "none" : "block";
+  btn.textContent = show ? "Show Answer" : "Hide Answer";
+}
+
+document.getElementById("takeQuizBtn").addEventListener("click",()=>{
+  window.parent.postMessage({ type:"openQuiz", quiz:"chapter4_lesson3_quiz.html" },"*");
+});
+</script>
+
+</body>
+</html>

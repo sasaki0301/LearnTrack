@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 7 – Comprehensive Assessment: Aromatic Compounds & Phenols</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f9f1, #f7faff);
+  margin: 0;
+  padding: 40px 20px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.quiz-container {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px 50px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  width: 95%;
+  max-width: 900px;
+  text-align: center;
+}
+
+h2 {
+  color: #136f63;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.progress-wrapper {
+  background: #e9f5ef;
+  border-radius: 8px;
+  height: 14px;
+  width: 100%;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #136f63, #2b7de9);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progress-text {
+  text-align: right;
+  font-size: 0.95em;
+  color: #174ea6;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.question {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #174ea6;
+  margin-bottom: 20px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice {
+  background: #e8ecf8;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05em;
+  transition: all 0.2s ease;
+}
+.choice:hover { background: #d3dbf8; transform: translateY(-2px); }
+.choice.selected { background: #174ea6; color: #fff; }
+
+.explanation {
+  background: #eef3ff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 10px;
+  display: none;
+  text-align: left;
+}
+
+.next-btn {
+  background: #136f63;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 1.05em;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.next-btn:hover { background: #0f5b52; }
+
+.result {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #174ea6;
+  margin-top: 20px;
+}
+.stars {
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+
+.quiz-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.quiz-btn {
+  background: #e8ecf8;
+  color: #174ea6;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.quiz-btn.primary {
+  background: #136f63;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Chapter 7 Comprehensive Assessment</h2>
+  <div class="progress-text" id="progressText"></div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+{q:"1. Which feature gives benzene its unusual stability?",c:["High molecular mass","Delocalized π electrons","Presence of triple bonds","Strong hydrogen bonding"],a:1,e:"Benzene is stabilized by delocalized π electrons spread evenly around the ring."},
+{q:"2. How many π electrons are present in benzene?",c:["4","6","8","10"],a:1,e:"Benzene has six π electrons, satisfying aromatic stability requirements."},
+{q:"3. Which compound is aromatic?",c:["Cyclohexane","Cyclohexene","Benzene","Hex-1,3-diene"],a:2,e:"Benzene has a planar ring with delocalized π electrons, making it aromatic."},
+{q:"4. What does the term aromatic originally refer to?",c:["Sweet smell","Presence of oxygen","Ring shape","Acidity"],a:0,e:"The term aromatic originally described compounds with noticeable odors."},
+{q:"5. Which condition is NOT required for aromaticity?",c:["Planar structure","Conjugated π system","4n+2 π electrons","High boiling point"],a:3,e:"Boiling point is unrelated to aromaticity."},
+
+{q:"6. What is the parent name when a benzene ring has a methyl substituent?",c:["Phenyl","Toluene","Methylbenzene","Benzyl"],a:2,e:"The systematic IUPAC name is methylbenzene (toluene is a retained name)."},
+{q:"7. What does para- indicate in a disubstituted benzene?",c:["1,2- positions","1,3- positions","1,4- positions","Adjacent carbons"],a:2,e:"Para indicates substituents at the 1,4-positions."},
+{q:"8. Which numbering gives the lowest locants?",c:["1,4","2,5","3,6","4,1"],a:0,e:"1,4 gives the lowest possible set of locants."},
+{q:"9. Which name follows IUPAC rules?",c:["p-bromotoluene","para-bromotoluene","4-bromotoluene","meta-bromotoluene"],a:2,e:"Numerical locants are preferred in IUPAC nomenclature."},
+{q:"10. When two substituents are present, which rule is applied first?",c:["Alphabetical order","Lowest locant rule","Molecular mass","Common name"],a:1,e:"The lowest locant rule determines numbering before alphabetical order."},
+
+{q:"11. What defines a phenol?",c:["An –OH on any carbon","An –OH on a benzene ring","An –OH on an alkyl group","Any aromatic compound"],a:1,e:"Phenols have an –OH group directly attached to a benzene ring."},
+{q:"12. Why is phenol more acidic than ethanol?",c:["Higher molar mass","Hydrogen bonding","Resonance stabilization of conjugate base","Presence of a ring"],a:2,e:"The phenoxide ion is stabilized by resonance."},
+{q:"13. Which ion is formed when phenol loses a proton?",c:["Phenyl ion","Phenoxide ion","Benzylium ion","Hydroxide ion"],a:1,e:"Deprotonation of phenol forms the phenoxide ion."},
+{q:"14. Which group has naming priority in aromatic compounds?",c:["Methyl","Chloro","Hydroxyl","Nitro"],a:2,e:"The hydroxyl group defines the parent name phenol."},
+{q:"15. Which name is correct?",c:["Hydroxybenzene","Phenol","Benzyl alcohol","Benzenol"],a:1,e:"Phenol is the accepted parent name."},
+
+{q:"16. What happens to electrons in aromatic rings?",c:["They remain localized","They oscillate rapidly","They are delocalized","They form σ bonds"],a:2,e:"π electrons are delocalized over the ring."},
+{q:"17. Which structure best represents benzene?",c:["Alternating single and double bonds","All single bonds","A resonance hybrid","Triple bonds"],a:2,e:"Benzene is best represented as a resonance hybrid."},
+{q:"18. What effect does an –OH group have on benzene?",c:["Makes it non-aromatic","Increases acidity","Destroys delocalization","Adds π electrons"],a:1,e:"The –OH group increases acidity via resonance effects."},
+{q:"19. Which substituent donates electron density to the ring?",c:["Nitro","Chloro","Hydroxyl","Cyano"],a:2,e:"The –OH group donates electron density through resonance."},
+{q:"20. Which compound is most acidic?",c:["Benzene","Phenol","Cyclohexanol","Toluene"],a:1,e:"Phenol is more acidic due to resonance stabilization."},
+
+{q:"21. What is the relationship between ortho and para?",c:["Same position","Adjacent","Opposite positions","Meta related"],a:2,e:"Para substituents are opposite each other on the ring."},
+{q:"22. What must remain unchanged in resonance structures?",c:["Electrons","Charges","Atoms","Bond order"],a:2,e:"Atoms never move in resonance structures."},
+{q:"23. Which statement about phenols is true?",c:["They are neutral in water","They are strong acids","They are weak acids","They do not ionize"],a:2,e:"Phenols are weak acids."},
+{q:"24. What does the prefix phenyl- indicate?",c:["Benzene as parent","Benzene as substituent","Alcohol group","Acid group"],a:1,e:"Phenyl- refers to a benzene ring acting as a substituent."},
+{q:"25. Which compound contains a phenyl group?",c:["Phenol","Toluene","Ethylbenzene","Benzenol"],a:2,e:"Ethylbenzene contains a phenyl substituent."},
+
+{q:"26. Which structure would show resonance?",c:["Cyclohexane","Phenoxide ion","Methane","Ethane"],a:1,e:"The phenoxide ion has delocalized charge."},
+{q:"27. What term describes equal bond lengths in benzene?",c:["Hyperconjugation","Resonance","Isomerism","Hybridization"],a:1,e:"Resonance explains equal bond lengths."},
+{q:"28. Why is benzene resistant to addition reactions?",c:["High polarity","Ring strain","Resonance stabilization","Low density"],a:2,e:"Addition would disrupt aromatic stability."},
+{q:"29. Which compound is NOT aromatic?",c:["Benzene","Phenol","Cyclohexane","Toluene"],a:2,e:"Cyclohexane lacks a conjugated π system."},
+{q:"30. What is the main learning focus of this chapter?",c:["Alkane reactions","Aromatic stability and naming","Alkene isomerism","Carboxylic acids"],a:1,e:"Chapter 7 focuses on aromatic compounds and phenols."}
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

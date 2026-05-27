@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 3 – Lesson 5: Organic Acids and Bases</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color: #136f63; font-size: 2.1em; margin-bottom: 0.4em; }
+  h2 { color: #136f63; font-size: 1.6em; margin-top: 1.4em; margin-bottom: 0.3em; }
+  h3 { color: #174ea6; font-size: 1.25em; margin: 0.6em 0; }
+
+  p { margin: 12px 0; }
+  ul { margin-left: 26px; }
+  .section { margin-bottom: 28px; }
+
+  .image { text-align:center; margin: 20px 0; }
+  img {
+    width:80%;
+    max-width:540px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Activity blocks */
+  .activity {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin: 20px 0;
+  }
+  .toggle-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.18s;
+    margin-top: 8px;
+  }
+  .toggle-btn:hover {
+    background: #0f5b52;
+    transform: translateY(-1px);
+  }
+
+  .answer {
+    display: none;
+    margin-top: 12px;
+    background: #eef3ff;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 17px;
+  }
+
+  .quiz-button {
+    display: inline-block;
+    background-color: #136f63;
+    color: white;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 22px;
+  }
+  .quiz-button:hover { background-color:#0f5b52; }
+
+  .note { font-size: 1.3rem; color:#555; margin-top: 6px; }
+
+  * { box-sizing: border-box; scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Organic Acids and Bases</h1>
+<p class="note">
+Organic molecules can donate or accept protons just like inorganic acids and bases — but their acidity and basicity depend heavily on structure, resonance, electronegativity, and substituents. This lesson explains <strong>why some organic molecules are strong acids, weak acids, strong bases, or weak bases</strong>.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. What Makes an Organic Acid?</h2>
+  <p>
+    An organic acid is a molecule that can donate a proton (H⁺).  
+    The strength of an organic acid depends on the stability of its <strong>conjugate base</strong>.
+  </p>
+
+  <h3>Main Types of Organic Acids</h3>
+  <ul>
+    <li><strong>Carboxylic acids (R–COOH)</strong> — strongest common organic acids</li>
+    <li><strong>Phenols (Ar–OH)</strong> — weak acids, stabilized by aromatic resonance</li>
+    <li><strong>Alcohols (R–OH)</strong> — very weak acids</li>
+  </ul>
+
+  <div class="image">
+    <img src="https://i.imgur.com/sgTs8kN.png" alt="Organic acids overview">
+    <p class="note"><em>Carboxylates are highly stabilized by resonance → strong acidity.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 1: Strongest Acid?</h3>
+    <p>Which is generally the strongest organic acid?</p>
+    <ul>
+      <li>A) Ethanol</li>
+      <li>B) Phenol</li>
+      <li>C) Acetic acid</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>C) Acetic acid</strong>. Carboxylic acids form resonance-stabilized conjugate bases.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. Why Carboxylic Acids Are Strong</h2>
+  <p>
+    Their conjugate base (carboxylate, R–COO⁻) is stabilized by <strong>two equivalent resonance structures</strong>.
+  </p>
+
+  <div class="image">
+    <img src="https://i.imgur.com/AhfhOv4.png" alt="Carboxylate resonance">
+    <p class="note"><em>Negative charge spread over two oxygens → very stable.</em></p>
+  </div>
+
+  <p><strong>More resonance = stronger acid.</strong></p>
+
+  <div class="activity">
+    <h3>Activity 2: Why Alcohols Are Weak</h3>
+    <p>Why is ethanol far less acidic compared to acetic acid?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Ethoxide (CH₃CH₂O⁻) has <strong>no resonance stabilization</strong>, making it a much less stable conjugate base → ethanol is a weak acid.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. What Makes an Organic Base?</h2>
+  <p>
+    An organic base is a molecule that can <strong>accept a proton</strong>.  
+    The most common organic bases are:
+  </p>
+
+  <ul>
+    <li><strong>Amines (R–NH₂, R₂NH, R₃N)</strong> — typical strong organic bases</li>
+    <li><strong>Aromatic amines (anilines)</strong> — weaker due to resonance</li>
+    <li><strong>Carbanions (R–C:⁻)</strong> — extremely strong bases</li>
+  </ul>
+
+  <div class="image">
+    <img src="https://www.chemistrysteps.com/wp-content/uploads/2021/12/cyclohexylamione-is-more-basic-than-aniline.png" alt="Organic bases comparison">
+    <p class="note"><em>Amines have a lone pair on nitrogen → readily accepts H⁺.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 3: Strongest Base?</h3>
+    <p>Which is typically the strongest base?</p>
+    <ul>
+      <li>A) Ammonia (NH₃)</li>
+      <li>B) Phenoxide ion</li>
+      <li>C) Carbanion (R–C:⁻)</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>C) Carbanion.</strong> Carbon is not electronegative and holds negative charge poorly → extremely reactive.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. Structure Determines Acid/Base Strength</h2>
+
+  <h3>Factor 1: Resonance</h3>
+  <p>
+    The more resonance in the conjugate base, the stronger the acid.
+  </p>
+
+  <h3>Factor 2: Inductive Effects</h3>
+  <p>
+    Electronegative atoms (F, Cl, Br) pull electron density through sigma bonds and stabilize the conjugate base.
+  </p>
+
+  <div class="image">
+    <img src="https://www.chemistrysteps.com/wp-content/uploads/2024/02/inductive-effect-increases-with-electronegativity.png" alt="Inductive effects acidity">
+    <p class="note"><em>More electronegative substituents → stronger acid.</em></p>
+  </div>
+
+  <h3>Factor 3: Hybridization</h3>
+  <ul>
+    <li>sp (50% s-character) → most electronegative → most acidic</li>
+    <li>sp² → moderate acidity</li>
+    <li>sp³ → least acidic</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 4: Predict Stronger Acid</h3>
+    <p>Which is more acidic?</p>
+    <ul>
+      <li>A) CH≡CH (sp)</li>
+      <li>B) CH₂=CH₂ (sp²)</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>A) CH≡CH.</strong> sp-hybridized carbon is more electronegative and stabilizes a negative charge better.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Comparing Organic Acids</h2>
+  <p>General acidity ranking:</p>
+
+  <ul>
+    <li>Carboxylic acids (most acidic)</li>
+    <li>Phenols</li>
+    <li>Alcohols</li>
+    <li>Alkanes/alkenes/alkynes (very weak)</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 5: Rank the Acidity</h3>
+    <p>Rank these from strongest to weakest acid:</p>
+    <p>Phenol, ethanol, acetic acid</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Acetic acid > Phenol > Ethanol</strong>  
+      — based on resonance stability of the conjugate base.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <h2>6. Practice Problems</h2>
+
+  <div class="activity">
+    <h3>Problem 1</h3>
+    <p>Which compound is more basic: aniline (C₆H₅NH₂) or methylamine (CH₃NH₂)? Why?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Methylamine.</strong>  
+      In aniline, resonance delocalizes the nitrogen lone pair into the aromatic ring → decreases basicity.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Problem 2</h3>
+    <p>Which is a stronger acid: chloroacetic acid or acetic acid?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Chloroacetic acid.</strong>  
+      Chlorine withdraws electron density via induction → stabilizes conjugate base → stronger acid.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Problem 3</h3>
+    <p>Why are carbanions extremely strong bases?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Carbon is not electronegative; it destabilizes negative charge → strongly seeks to gain H⁺.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Problem 4</h3>
+    <p>Rank from strongest to weakest base: NH₃, CH₃NH₂, aniline.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>CH₃NH₂ > NH₃ > aniline</strong>  
+      — alkyl groups donate electron density; aromatic resonance reduces basicity.
+    </div>
+  </div>
+
+  <div class="activity">
+    <h3>Problem 5</h3>
+    <p>Which is more acidic: phenol or cyclohexanol?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Phenol.</strong>  
+      Its conjugate base is stabilized by aromatic resonance; alcohols lack this stabilization.
+    </div>
+  </div>
+</div>
+<div class="section">
+
+  <h2>Watch: Acids & Bases - Inductive Effect, Electronegativity, Hybridization, Resonance</h2>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/OvQufqTyw54" title="Acids & Bases - Inductive Effect, Electronegativity, Hybridization, Resonance" allowfullscreen></iframe>
+  </div>
+</div> 
+
+<!-- KEY TERMS -->
+<div class="section">
+  <h2>Key Terms</h2>
+  <ul>
+    <li><strong>Conjugate base:</strong> Species formed after an acid donates a proton.</li>
+    <li><strong>Resonance stabilization:</strong> Delocalization of electrons that increases stability.</li>
+    <li><strong>Inductive effect:</strong> Electron withdrawal through sigma bonds.</li>
+    <li><strong>Amines:</strong> Nitrogen-containing organic bases.</li>
+    <li><strong>Carboxylic acid:</strong> Organic acid containing the –COOH group.</li>
+    <li><strong>Phenol:</strong> Aromatic alcohol with acidic behavior.</li>
+    <li><strong>Hybridization effect:</strong> More s-character → more acidic.</li>
+  </ul>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Quiz →</button>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const box = btn.nextElementSibling;
+    const isVisible = box.style.display === "block";
+    box.style.display = isVisible ? "none" : "block";
+    btn.textContent = isVisible ? "Show Answer" : "Hide Answer";
+  }
+
+  document.getElementById("takeQuizBtn").addEventListener("click", () => {
+    window.parent.postMessage({ type:"openQuiz", quiz:"chapter3_lesson5_quiz.html" }, "*");
+  });
+</script>
+
+</body>
+</html>

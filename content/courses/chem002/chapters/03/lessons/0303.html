@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 3 – Lesson 3: Resonance Structures</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color: #136f63; font-size: 2.1em; margin-bottom: 0.4em; }
+  h2 { color: #136f63; font-size: 1.6em; margin-top: 1.4em; margin-bottom: 0.3em; }
+  h3 { color: #174ea6; font-size: 1.25em; margin: 0.6em 0; }
+  p { margin: 12px 0; }
+  ul { margin-left: 28px; }
+
+  .section { margin-bottom: 28px; }
+
+  .image { text-align:center; margin: 20px 0; }
+  img {
+    width:80%;
+    max-width:540px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+  iframe {
+      width: 90%;
+      max-width: 760px;
+      height: 430px;
+      border-radius: 12px;
+      border: none;
+    }
+
+  /* Activity blocks */
+  .activity {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    margin: 20px 0;
+  }
+  .toggle-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.18s;
+    margin-top: 8px;
+  }
+  .toggle-btn:hover {
+    background: #0f5b52;
+    transform: translateY(-1px);
+  }
+
+  .answer {
+    display: none;
+    margin-top: 12px;
+    background: #eef3ff;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 17px;
+  }
+
+  .quiz-button {
+    display: inline-block;
+    background-color: #136f63;
+    color: white;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 22px;
+  }
+  .quiz-button:hover { background-color:#0f5b52; }
+
+  .note { font-size: 1.3rem; color:#555; margin-top: 6px; }
+
+  * { box-sizing: border-box; scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Resonance Structures</h1>
+<p class="note">
+Resonance describes molecules for which a single Lewis structure cannot accurately represent the electron distribution.  
+The real structure is a <strong>resonance hybrid</strong> — a blend of all valid resonance contributors.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. What is Resonance?</h2>
+  <p>
+    When multiple valid electron arrangements are possible for the same arrangement of atoms, each arrangement is a <strong>resonance structure</strong>.  
+    These structures differ only in electron placement — never atom positions.
+  </p>
+
+  <div class="image">
+    <img src="https://i.imgur.com/2ULqddL.png" alt="NO2- resonance structures">
+    <p class="note"><em>Nitrite (NO₂⁻): the double bond can be placed on either oxygen.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 1: Concept Check</h3>
+    <p>Does resonance mean the molecule switches back and forth between forms?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>No.</strong> The molecule does not flip between structures.  
+      The real structure is a hybrid with delocalized electrons.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. When Do We Use Resonance?</h2>
+  <p>Resonance applies when:</p>
+  <ul>
+    <li>A double bond can be placed in more than one position</li>
+    <li>A lone pair can form a double bond</li>
+    <li>A negative or positive charge can be placed on different atoms</li>
+    <li>π bonds can shift positions without breaking σ bonds</li>
+  </ul>
+
+  <p><strong>Only electrons move.</strong> The atomic skeleton must remain unchanged.</p>
+
+  <div class="activity">
+    <h3>Activity 2: Valid or Invalid?</h3>
+    <p>Which of the following actions is NOT allowed in resonance structures?</p>
+    <ul>
+      <li>A) Moving a π bond to another position</li>
+      <li>B) Converting a lone pair into a π bond</li>
+      <li>C) Moving atoms to a new location</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>C is not allowed.</strong> Resonance never moves atoms.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. Resonance Patterns You Must Know</h2>
+
+  <h3>Pattern 1: Lone Pair → Double Bond</h3>
+  <div class="image">
+    <img src="https://i.imgur.com/gnJvSj0.png" alt="Lone pair to pi bond">
+  </div>
+
+  <h3>Pattern 2: π Bond → Lone Pair</h3>
+  <div class="image">
+    <img src="https://i.imgur.com/66YXBul.png" alt="Pi bond shift pattern">
+  </div>
+
+  <h3>Pattern 3: π Bond → π Bond</h3>
+  <div class="image">
+    <img src="https://i.imgur.com/ic2LDPd.png" alt="Charge movement">
+  </div>
+
+  <div class="activity">
+    <h3>Activity 3: Identify the Allowed Move</h3>
+    <p>Which type of electron pair can move in resonance?</p>
+    <ul>
+      <li>A) σ bond electrons</li>
+      <li>B) π bond electrons</li>
+      <li>C) Lone pairs</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>B and C</strong> can move.  
+      σ bonds must stay intact.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. Major vs Minor Contributors</h2>
+
+  <h3>Major contributor characteristics:</h3>
+  <ul>
+    <li>Full octets on all atoms</li>
+    <li>Negative charge on electronegative atoms</li>
+    <li>Positive charge on less electronegative atoms</li>
+    <li>Minimal charge separation</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 4: Major Contributor</h3>
+    <p>Which contributor is more stable?</p>
+    <ol>
+      <li>A: Negative charge on oxygen</li>
+      <li>B: Negative charge on carbon</li>
+    </ol>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>A</strong> is more stable because oxygen stabilizes negative charge better than carbon.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Resonance in Ozone (O₃)</h2>
+
+  <div class="image">
+    <img src="https://homework.study.com/cimages/multimages/16/ozone1628021019504830945.png" alt="Ozone resonance hybrid">
+    <p class="note"><em>Both O–O bonds are identical due to delocalized electrons.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 5: Ozone Hybrid</h3>
+    <p>Why do both O–O bonds have the same length?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Because π electrons are delocalized over both O–O bonds, giving each bond partial double-bond character.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <h2>6. Resonance in Carboxylate Ions (RCOO⁻)</h2>
+  <p>Carboxylate ions stabilize negative charge by delocalizing it over two oxygen atoms.</p>
+
+  <div class="image">
+    <img src="https://i.imgur.com/XYYaqnK.png" alt="Carboxylate resonance">
+    <p class="note"><em>Both C–O bonds are equal; the charge is shared.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 6: Carboxylate Stability</h3>
+    <p>Why is the carboxylate ion more stable than an alcohol’s O⁻?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Because the negative charge is <strong>delocalized</strong> over two oxygens instead of concentrated on one atom.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7 -->
+<div class="section">
+  <h2>7. Aromatic Resonance: Benzene and Phenoxide</h2>
+  <p>Benzene’s π electrons are fully delocalized across all six carbons, creating equal bond lengths.</p>
+
+  <div class="image">
+    <img src="https://i.imgur.com/84PejBF.jpeg" alt="Benzene resonance">
+  </div>
+
+  <p>Phenoxide ion (deprotonated phenol) also delocalizes negative charge into the aromatic ring.</p>
+
+  <div class="image">
+    <img src="https://d10lpgp6xz60nq.cloudfront.net/physics_images/KSV_CHM_ORG_P2_C12_E01_285_S01.png" alt="Phenoxide resonance">
+  </div>
+
+  <div class="activity">
+    <h3>Activity 7: Aromatic Stability</h3>
+    <p>Why is benzene unusually stable?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Because its π electrons are <strong>fully delocalized</strong> and spread evenly over the ring, creating aromatic stabilization.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<div class="section">
+  <h2>8. Allylic Resonance</h2>
+  <p>Allylic systems have a π bond adjacent to a carbon with a lone pair or charge. Electrons can flow across three atoms.</p>
+
+  <div class="image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Allylic_resonance.png" alt="Allylic resonance examples">
+  </div>
+
+  <div class="activity">
+    <h3>Activity 8: Allylic Check</h3>
+    <p>Which is more stable: a typical carbocation or an allylic carbocation?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The <strong>allylic carbocation</strong> because the positive charge is delocalized across two carbons.
+    </div>
+  </div>
+</div>
+
+<!-- EXTRA PRACTICE SECTION -->
+<div class="section">
+  <h2>Additional Practice: Resonance Mastery</h2>
+  <p class="note">Try these more advanced resonance problems to strengthen your understanding. Reveal the answers only after attempting each one.</p>
+
+  <!-- PRACTICE 1 -->
+  <div class="activity">
+    <h3>Practice 1: Identify All Valid Resonance Structures</h3>
+    <p>Below is the acetate ion (CH₃COO⁻). How many valid resonance structures can you draw?</p>
+
+    <div class="image">
+      <img src="https://i.imgur.com/Kf1QUYV.jpeg" alt="Acetate">
+    </div>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Two valid resonance structures.</strong><br><br>
+      One structure has the double bond to the left oxygen, and the other has it on the right oxygen.  
+      The negative charge is delocalized: each O carries −1 only half the time in the hybrid.
+    </div>
+  </div>
+  <!-- PRACTICE 2 -->
+  <div class="activity">
+    <h3>Practice 2: Allylic Resonance Skill Check</h3>
+    <p>Which position(s) can the positive charge move to in the allylic carbocation below?</p>
+
+    <div class="image">
+      <img src="https://i.imgur.com/KEj1Hph.png" alt="Allylic carbocation">
+    </div>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The positive charge can appear on either carbon adjacent to the π bond.<br><br>
+      The two contributors are:  
+      • C⁺ next to the double bond on the left  
+      • C⁺ next to the double bond on the right  
+      (These are connected by shifting the π bond.)
+    </div>
+  </div>
+
+  <!-- PRACTICE 3 -->
+  <div class="activity">
+    <h3>Practice 3: Resonance in Aromatic Systems</h3>
+    <p>Look at the phenoxide ion (C₆H₅O⁻). How does resonance stabilize the negative charge?</p>
+
+    <div class="image">
+      <img src="https://d10lpgp6xz60nq.cloudfront.net/physics_images/KSV_CHM_ORG_P2_C12_E01_285_S01.png" alt="Phenoxide resonance">
+    </div>
+
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The negative charge is delocalized into the aromatic ring.<br><br>
+      It can be located on the oxygen (most stable) or distributed onto the ortho and para carbons through π-bond shifts.  
+      This extended delocalization increases stability compared to a simple alkoxide ion.
+    </div>
+  </div>
+</div>
+<!-- SECTION 6: Short explainer video -->
+<div class="section">
+  <h2>Watch: Resonance Structures</h2>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/OqsOIp5UuME" title="Resonance Structures" allowfullscreen></iframe>
+  </div>
+</div>  
+
+
+<!-- KEY TERMS -->
+<div class="section">
+  <h2>Key Terms</h2>
+  <ul>
+    <li><strong>Resonance:</strong> Multiple Lewis structures describing one molecule.</li>
+    <li><strong>Hybrid:</strong> The true structure formed from all contributors.</li>
+    <li><strong>Major contributor:</strong> Most stable resonance form.</li>
+    <li><strong>Delocalization:</strong> Electrons shared across multiple atoms.</li>
+    <li><strong>Allylic:</strong> Position next to a π bond.</li>
+    <li><strong>Aromatic:</strong> Cyclic, conjugated, highly stabilized π system.</li>
+    <li><strong>Carboxylate:</strong> RCOO⁻ ion with equal C–O bonds.</li>
+  </ul>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Quiz →</button>
+</div>
+
+<script>
+  function toggleAnswer(btn) {
+    const box = btn.nextElementSibling;
+    const isVisible = box.style.display === "block";
+    box.style.display = isVisible ? "none" : "block";
+    btn.textContent = isVisible ? "Show Answer" : "Hide Answer";
+  }
+  document.getElementById("takeQuizBtn").addEventListener("click", () => {
+    window.parent.postMessage({ type:"openQuiz", quiz:"chapter3_lesson3_quiz.html" }, "*");
+  });
+</script>
+
+</body>
+</html>

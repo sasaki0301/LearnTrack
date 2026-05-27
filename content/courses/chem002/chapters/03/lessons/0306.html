@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 3 Summary – Polarity, Formal Charge, Resonance, Acids & Bases</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color:#136f63; font-size:2.1em; margin-bottom:0.4em; }
+  h2 { color:#136f63; font-size:1.6em; margin-top:1.4em; margin-bottom:0.3em; }
+  h3 { color:#174ea6; font-size:1.25em; margin:0.6em 0; }
+  p { margin:12px 0; }
+
+  ul { margin-left:28px; }
+  .section { margin-bottom:32px; }
+
+  /* Activity */
+  .activity {
+    background:#ffffff;
+    border-radius:12px;
+    padding:16px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+    margin:20px 0;
+  }
+  .toggle-btn {
+    background:#136f63;
+    color:#fff;
+    border:none;
+    padding:9px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:16px;
+    margin-top:8px;
+    transition:0.18s;
+  }
+  .toggle-btn:hover { background:#0f5b52; transform:translateY(-1px); }
+  .answer {
+    display:none;
+    margin-top:12px;
+    background:#eef3ff;
+    padding:14px;
+    border-radius:8px;
+    font-size:17px;
+  }
+
+  .quiz-button {
+    background-color:#136f63;
+    color:white;
+    padding:13px 26px;
+    border-radius:10px;
+    border:none;
+    font-weight:bold;
+    font-size:17px;
+    cursor:pointer;
+    margin-top:26px;
+    transition:0.2s;
+  }
+  .quiz-button:hover { background:#0f5b52; }
+
+  iframe {
+    width:90%;
+    max-width:760px;
+    height:430px;
+    border-radius:12px;
+    border:none;
+    display:block;
+    margin:20px auto;
+  }
+
+  .note { font-size:1.25rem; color:#555; }
+
+  * { box-sizing:border-box; scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Chapter 3 Summary – Polarity, Charges, Resonance, Acids, and Bases</h1>
+<p class="note">
+This chapter explored how electrons move, distribute, and influence molecular behavior. Understanding these concepts allows you to predict reactivity, stability, acidity/basicity, and physical properties of organic molecules.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. Polar Covalent Bonds & Electronegativity</h2>
+  <ul>
+    <li>Electronegativity measures an atom’s ability to attract electrons.</li>
+    <li>A bond is <strong>nonpolar</strong> when atoms share electrons equally.</li>
+    <li>A bond is <strong>polar</strong> when one atom attracts electrons more strongly (dipole).</li>
+    <li>Molecular polarity depends on both bond polarity and molecular geometry.</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Polarity Test</h3>
+    <p>Why is CO₂ nonpolar even though the C=O bonds are polar?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      The dipoles cancel because the molecule is linear and symmetrical → net dipole = 0.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. Formal Charge</h2>
+  <ul>
+    <li>Formal charge = valence electrons − (nonbonding + bonding/2).</li>
+    <li>Used to determine the best (most stable) Lewis structure.</li>
+    <li>Best structures usually have:
+      <ul>
+        <li>Lowest overall formal charges</li>
+        <li>Negative charges on electronegative atoms</li>
+        <li>Full octets</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Quick Calculation</h3>
+    <p>What is the formal charge of nitrogen in NH₄⁺?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Formal Charge = 5 − 0 − (8/2) = +1
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. Resonance</h2>
+  <ul>
+    <li>Resonance occurs when electrons can be placed in more than one valid arrangement.</li>
+    <li>Electrons (not atoms) move: lone pairs & π bonds shift.</li>
+    <li>The actual molecule is a <strong>resonance hybrid</strong>.</li>
+    <li>Major contributors have:
+      <ul>
+        <li>Full octets</li>
+        <li>Lowest charges</li>
+        <li>Negative charge on electronegative atoms</li>
+        <li>Minimal separation of charges</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Resonance Validity</h3>
+    <p>What rule makes this invalid? “Moving atoms to a new position.”</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Resonance moves only electrons, never atoms.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. Bronsted–Lowry Acids and Bases</h2>
+  <ul>
+    <li>Acid = proton donor (H⁺).</li>
+    <li>Base = proton acceptor.</li>
+    <li>Conjugate base = what remains after an acid donates H⁺.</li>
+    <li>Strength increases with stability of conjugate base.</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Conjugate Pairs</h3>
+    <p>What is the conjugate base of HSO₄⁻?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Remove H⁺ → SO₄²⁻
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Lewis Acids and Bases</h2>
+  <ul>
+    <li>Lewis acid = electron pair acceptor.</li>
+    <li>Lewis base = electron pair donor.</li>
+    <li>All Bronsted bases are Lewis bases, but not all Bronsted acids are Lewis acids.</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Identify Type</h3>
+    <p>Is BF₃ a Lewis acid or base?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Lewis acid — lacks an electron pair and accepts one.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <h2>6. Organic Acids and Bases</h2>
+  <ul>
+    <li>Acid strength depends on stability of conjugate base.</li>
+    <li>Carboxylic acids are strong because their conjugate base has two resonance structures.</li>
+    <li>Electron-withdrawing groups increase acidity (inductive effect).</li>
+    <li>Bases:
+      <ul>
+        <li>Aliphatic amines = strong bases</li>
+        <li>Aromatic amines = weaker (lone pair delocalized)</li>
+        <li>Carbanions = extremely strong bases</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="activity">
+    <h3>Checkpoint: Acid Ranking</h3>
+    <p>Rank increasing acidity: ethanol, phenol, acetic acid.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Ethanol &lt; Phenol &lt; Acetic acid  
+      (due to resonance stabilization in phenoxide and carboxylate)
+    </div>
+  </div>
+</div>
+
+<!-- BUTTON -->
+<div style="text-align:center;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Comprehensive Assessment →</button>
+</div>
+
+<script>
+function toggleAnswer(btn) {
+  const box = btn.nextElementSibling;
+  const show = box.style.display === "block";
+  box.style.display = show ? "none" : "block";
+  btn.textContent = show ? "Show Answer" : "Hide Answer";
+}
+
+document.getElementById("takeQuizBtn").addEventListener("click", () => {
+  window.parent.postMessage({ type:"openQuiz", quiz:"chapter3_summary_quiz.html" }, "*");
+});
+</script>
+
+</body>
+</html>

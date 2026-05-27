@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chapter 4 – Lesson 1: Alkanes & Alkane Isomers</title>
+
+<style>
+  :root{
+    --brand:#136f63;
+    --accent:#174ea6;
+    --card:#ffffff;
+    --muted:#eef3ff;
+    --base-font:24px;
+  }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg,#fbfffd,#f7fbff);
+    color: #222;
+    margin: 0;
+    padding: 28px;
+    line-height: 1.7;
+    font-size: var(--base-font);
+  }
+
+  h1 { color: var(--brand); font-size: 2.2em; margin-bottom: 0.3em; }
+  h2 { color: var(--brand); font-size: 1.4em; margin-top: 1.2em; margin-bottom: 0.2em; }
+  h3 { color: var(--accent); font-size: 1.05em; margin: 0.6em 0; }
+
+  p { margin: 12px 0; }
+  .note { font-size: 0.95rem; color:#555; margin-top:6px; }
+
+  .section {
+    margin-bottom: 26px;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 6px 22px rgba(19,111,99,0.04);
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .visual {
+    text-align: center;
+  }
+
+  img.example {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  }
+
+  .small-img {
+    max-width: 180px;
+  }
+
+  .formula {
+    font-family: "Courier New", monospace;
+    background: var(--muted);
+    padding: 8px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 0.95em;
+  }
+
+  .activity {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+    margin: 14px 0;
+  }
+
+  .toggle-btn {
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.14s;
+    margin-top: 10px;
+  }
+  .toggle-btn:hover { transform: translateY(-2px); background:#0f5b52; }
+
+  .answer {
+    display:none;
+    margin-top:12px;
+    background:#f0f8ff;
+    padding:12px;
+    border-radius:8px;
+    font-size:0.95em;
+  }
+
+  table.reference {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+  }
+  table.reference th, table.reference td {
+    border-bottom:1px solid #eee;
+    padding:10px 8px;
+    text-align:left;
+  }
+  table.reference th { background:#f3f7ff; color:var(--accent); }
+
+  .quiz-button {
+    display:inline-block;
+    background:var(--brand);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:10px;
+    border:none;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:12px;
+  }
+  .quiz-button:hover { background:#0f5b52; }
+
+  .links { margin-top:12px; font-size:0.95em; }
+  .links a { color:var(--accent); text-decoration:none; font-weight:600; }
+  .links a:hover { text-decoration:underline; }
+
+  @media (max-width:920px){
+    .two-col { grid-template-columns: 1fr; }
+    .visual { order: -1; margin-bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+
+  <h1>Alkanes & Alkane Isomers</h1>
+  <p class="note">Alkanes are the simplest family of organic compounds — saturated hydrocarbons containing only single C–C and C–H bonds. This lesson explains definition, formulas, typical representations (condensed, structural, skeletal), and how to generate & recognize constitutional (structural) isomers.</p>
+
+  <!-- SECTION: Definition & Formula -->
+  <div class="section two-col">
+    <div>
+      <h2>1. What are Alkanes?</h2>
+      <p>
+        Alkanes are saturated hydrocarbons where every carbon is sp³-hybridized and all C–C bonds are single (σ) bonds.
+        They follow the general formula <span class="formula">C<sub>n</sub>H<sub>2n+2</sub></span> for acyclic (open-chain) alkanes.
+      </p>
+
+      <h3>Common quick facts</h3>
+      <ul>
+        <li>Also called paraffins.</li>
+        <li>Low reactivity compared to alkenes/alkynes — main reactions: combustion and substitution (radical) reactions.</li>
+        <li>As chain length increases: boiling point increases, volatility decreases.</li>
+      </ul>
+
+      <h3>Common representations</h3>
+      <ul>
+        <li><strong>Condensed:</strong> CH₃CH₂CH₃</li>
+        <li><strong>Structural (Lewis-like):</strong> show each bond explicitly</li>
+        <li><strong>Skeletal (line-angle):</strong> carbon atoms implied at line ends/intersections — the fastest for organic chemists</li>
+      </ul>
+    </div>
+
+    <div class="visual">
+      <img class="example" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Methane-3D-balls.png" alt="Methane 3D model">
+      <div style="margin-top:10px;">
+        <div><strong>Methane</strong> — formula: <span class="formula">CH₄</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Isomers intro -->
+  <div class="section">
+    <h2>2. Constitutional (structural) isomers</h2>
+    <p>
+      Structural or constitutional isomers are compounds with the same molecular formula but different connectivity of atoms.
+      Example: For <span class="formula">C₄H₁₀</span>, there are two isomers: <em>n-butane</em> (straight chain) and <em>isobutane</em> (branched).
+    </p>
+
+    <div class="two-col">
+      <div>
+        <h3>Why important?</h3>
+        <p>
+          Isomers often have different physical and chemical properties (boiling point, melting point, reactivity). Recognizing possible isomers is a key organic skill.
+        </p>
+
+        <h3>How to systematically find isomers</h3>
+        <ol>
+          <li>Count carbons (n) from the formula.</li>
+          <li>Start with the straight chain (n carbons in a row).</li>
+          <li>Create unique branchings without duplicating connectivity already counted (consider symmetry).</li>
+          <li>Use line-angle (skeletal) formula to check duplicates — rotate and reflect to test identity.</li>
+        </ol>
+      </div>
+
+      <div class="visual">
+        <img class="example" src="https://i.imgur.com/m2isMxQ.png" alt="n-butane and isobutane 2D">
+        <div style="margin-top:8px;"><strong>n-Butane</strong> and <strong>Isobutane</strong> (C₄H₁₀)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: Examples C4 C5 C6 -->
+  <div class="section">
+    <h2>3. Worked examples — generate isomers</h2>
+
+    <div class="activity">
+      <h3>Activity A: C₄H₁₀ (Butanes)</h3>
+      <p>List the constitutional isomers of C₄H₁₀ and provide their condensed names.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer:</strong><br>
+        1) n-butane — condensed: CH₃CH₂CH₂CH₃<br>
+        2) isobutane (or methylpropane) — condensed: (CH₃)₃CH<br>
+        <div style="margin-top:8px;">These two are the only constitutional isomers for C₄H₁₀.</div>
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Activity B: C₅H₁₂ (Pentanes)</h3>
+      <p>How many constitutional isomers exist for C₅H₁₂? Name them and show skeletal sketches (describe if sketching on paper).</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer:</strong><br>
+        There are <strong>three</strong> isomers:
+        <ol>
+          <li>n-pentane — CH₃CH₂CH₂CH₂CH₃</li>
+          <li>isopentane (methylbutane) — CH₃CH(CH₃)CH₂CH₃</li>
+          <li>neopentane (dimethylpropane) — C(CH₃)₄ (condensed: (CH₃)₄C)</li>
+        </ol>
+        <div style="margin-top:6px;">Sketch tip: draw straight chain, then move methyl groups to create unique branching; avoid duplicates from rotation/reflection.</div>
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Activity C: C₆H₁₄ (Hexanes)</h3>
+      <p>How many constitutional isomers does C₆H₁₄ have? List them (common names acceptable).</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer:</strong><br>
+        C₆H₁₄ has <strong>five</strong> constitutional isomers: n-hexane, 2-methylpentane (isohexane), 3-methylpentane, 2,2-dimethylbutane, and 2,3-dimethylbutane.  
+        (Practice: sketch each and verify distinct connectivity.)
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SECTION: Visual tools & 3D -->
+  <div class="section two-col">
+    <div>
+      <h2>4. Visualizing molecules (3D & interactive)</h2>
+      <p>
+        Seeing molecules in 3D helps understand shape and steric effects. Use MolView or other 3D viewers to rotate structures and inspect bond angles.
+      </p>
+
+      <div class="links">
+        <div>Open these in a new tab:</div>
+        <ul>
+          <li><a href="https://molview.org" target="_blank" rel="noopener">MolView — 3D modeler & search</a></li>
+          <li><a href="https://phet.colorado.edu" target="_blank" rel="noopener">PhET simulations — search for "Molecule Shapes" (useful to visualize geometry)</a></li>
+        </ul>
+      </div>
+
+      <p class="note">Tip: search for "butane" or "isobutane" in MolView, then use the 3D viewer to compare conformations (anti/gauche) — useful when you move to stereochemistry later.</p>
+    </div>
+
+    <div class="video">
+      <iframe src="https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_all.html" width="100%" height="500" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- SECTION: Additional practice -->
+  <div class="section">
+    <h2>5. Further Practice</h2>
+
+    <div class="activity">
+      <h3>Activity D: Recognize duplicates</h3>
+      <p>Sketch two different-looking skeletal drawings. How do you test if they are the same isomer or different?</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer:</strong><br>
+        Rotate and reflect the sketches. If after rotation/reflection the connectivity matches (same carbon-to-carbon connections and branch positions), they are the same. If not, they are different isomers. A systematic way: label carbons and compare the adjacency list.
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Activity E: Boiling point trend</h3>
+      <p>Which has higher boiling point: n-hexane or 2,2-dimethylbutane? Explain.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <strong>Answer:</strong><br>
+        n-Hexane has a higher boiling point. Straighter chains pack better and have larger surface area → stronger London dispersion forces. Highly branched isomers are more compact and have lower boiling points.
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY TERMS -->
+  <div class="section">
+    <h2>Key Terms</h2>
+    <table class="reference">
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td>Alkane</td><td>Saturated hydrocarbon with only single bonds (general formula CnH2n+2 for open chains).</td></tr>
+      <tr><td>Condensed formula</td><td>Shorthand showing groups (e.g., CH3CH2CH3).</td></tr>
+      <tr><td>Skeletal (line-angle) formula</td><td>Carbon atoms at line ends/intersections; hydrogens on carbons usually omitted.</td></tr>
+      <tr><td>Constitutional (structural) isomer</td><td>Same molecular formula, different connectivity of atoms.</td></tr>
+      <tr><td>Branched isomer</td><td>An isomer where one or more carbon atoms branch off the main chain.</td></tr>
+    </table>
+  </div>
+
+  <div style="text-align:center; margin-top:12px;">
+    <button class="quiz-button" id="takeQuizBtn">Take Lesson Quiz →</button>
+  </div>
+
+<script>
+  function toggleAnswer(btn) {
+    const box = btn.nextElementSibling;
+    const visible = box.style.display === "block";
+    box.style.display = visible ? "none" : "block";
+    btn.textContent = visible ? "Show Answer" : "Hide Answer";
+  }
+
+  document.getElementById('takeQuizBtn').addEventListener('click', () => {
+    window.parent.postMessage({ type: "openQuiz", quiz: "chapter4_lesson1_quiz.html" }, "*");
+  });
+</script>
+
+</body>
+</html>

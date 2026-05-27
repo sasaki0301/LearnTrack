@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chapter 3 – Lesson 2: Formal Charges</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #fafafa;
+      color: #222;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.8;
+      font-size: 24px;
+    }
+
+    h1 { color: #136f63; font-size: 2.1em; margin-bottom: 0.4em; }
+    h2 { color: #136f63; font-size: 1.6em; margin-top: 1.4em; margin-bottom: 0.3em; }
+    h3 { color: #174ea6; font-size: 1.25em; margin: 0.6em 0; }
+    p { margin: 12px 0; }
+    .section { margin-bottom: 28px; }
+
+    .image, .video { text-align: center; margin: 22px 0; }
+    img {
+      border-radius: 10px;
+      width: 80%;
+      max-width: 640px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    iframe {
+      width: 90%;
+      max-width: 760px;
+      height: 430px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    .activity {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      margin: 20px 0;
+    }
+    .activity h3 { margin-top: 0; }
+
+    .toggle-btn {
+      background: #136f63;
+      color: #fff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: 0.18s;
+      margin-top: 8px;
+    }
+    .toggle-btn:hover { background: #0f5b52; transform: translateY(-1px); }
+
+    .answer {
+      display: none;
+      margin-top: 12px;
+      background: #eef3ff;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .note { font-size: 2rem; color: #555; margin-top: 6px; }
+
+    .quiz-button {
+      display: inline-block;
+      background-color: #136f63;
+      color: white;
+      padding: 13px 26px;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 22px;
+    }
+    .quiz-button:hover { background-color: #0f5b52; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      font-size: 18px;
+    }
+    th { background: #f3f7ff; color: #174ea6; }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <h1>Formal Charges</h1>
+
+  <p class="note">
+    Formal charge is a bookkeeping tool to assign charges to atoms in Lewis structures. It helps choose the best Lewis structure and predict where charges sit in molecules or ions.
+  </p>
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2>1. Definition & Formula</h2>
+    <p>
+      <strong>Formal charge (FC)</strong> is the hypothetical charge an atom would have if all bonding electrons were shared equally.
+      Use this formula:
+    </p>
+    <p><strong>FC = V − (N + B/2)</strong></p>
+    <ul>
+      <li><strong>V</strong> = valence electrons in the neutral atom</li>
+      <li><strong>N</strong> = nonbonding electrons (lone-pair electrons on that atom)</li>
+      <li><strong>B</strong> = bonding electrons around that atom (each bond = 2 electrons)</li>
+    </ul>
+
+    <div class="activity">
+      <h3>Example: Formal charge on oxygen in H<sub>2</sub>O</h3>
+      <p>Calculate FC for the oxygen atom in H–O–H.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        V = 6; N = 4 (two lone pairs → 4 electrons); B = 4 (two O–H bonds → 4 electrons).<br>
+        FC = 6 − (4 + 4/2) = 6 − (4 + 2) = 0. Oxygen formal charge = <strong>0</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2>2. Why formal charge matters</h2>
+    <p>
+      Use formal charges to:
+    </p>
+    <ul>
+      <li>Compare alternative Lewis structures (pick the one with smaller magnitude formal charges).</li>
+      <li>Ensure the sum of formal charges equals the overall molecular/ionic charge.</li>
+      <li>Predict likely sites for attack: negative FC often indicates nucleophilic sites; positive FC indicates electrophilic sites.</li>
+    </ul>
+
+    <div class="activity">
+      <h3>Quick check</h3>
+      <p>If a neutral molecule has atoms with FCs that sum to +1, what’s wrong?</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        The sum must equal the overall charge. A neutral molecule must sum to 0; if you get +1, the Lewis structure or electron count is probably wrong.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2>3. Step-by-step procedure</h2>
+    <ol>
+      <li>Draw a Lewis structure (count total valence electrons first).</li>
+      <li>For each atom: find V (valence electrons for that free atom).</li>
+      <li>Count N = nonbonding electrons (lone pairs on that atom).</li>
+      <li>Count B = total bonding electrons around that atom (each bond = 2 electrons).</li>
+      <li>Compute FC = V − (N + B/2).</li>
+      <li>Verify the sum of all FCs equals the molecule/ion charge.</li>
+    </ol>
+
+    <div class="activity">
+      <h3>Practice: CO<sub>2</sub> (O=C=O)</h3>
+      <p>Find FC for C and each O in the linear CO<sub>2</sub> drawn as O=C=O.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Carbon: V=4, N=0, B=8 → FC = 4 − (0 + 8/2) = 0.<br>
+        Each oxygen (double-bonded): V=6, N=4, B=4 → FC = 6 − (4 + 4/2) = 0.<br>
+        All atoms have FC = 0 and total = 0 (neutral molecule).
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: Examples without resonance -->
+  <div class="section">
+    <h2>4. Examples</h2>
+
+    <div class="activity">
+      <h3>Example A: Ammonium, NH<sub>4</sub><sup>+</sup></h3>
+      <p>What are the formal charges on N and H in NH<sub>4</sub><sup>+</sup>?</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Nitrogen: V=5, N=0, B=8 → FC = 5 − (0 + 8/2) = +1.<br>
+        Each hydrogen: V=1, N=0, B=2 → FC = 1 − (0 + 2/2) = 0.<br>
+        Sum = +1, matching the ion's overall charge.
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Example B: Methyl cation, CH<sub>3</sub><sup>+</sup></h3>
+      <p>Compute FC on carbon in CH<sub>3</sub><sup>+</sup> (structure: carbon bonded to three H, no lone pairs).</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Carbon: V=4, N=0, B=6 → FC = 4 − (0 + 6/2) = 4 − 3 = +1.<br>
+        Each H: FC = 0. Sum = +1 consistent with CH<sub>3</sub><sup>+</sup>.
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Example C: Hydrogen cyanide, H–C≡N</h3>
+      <p>Assign FC for H, C, and N in HCN (structure: H–C≡N).</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Hydrogen: V=1, N=0, B=2 → FC = 0.<br>
+        Carbon: V=4, N=0, B=8 (triple bond to N plus single bond to H totals 4 bonds = 8 e⁻) → FC = 4 − (0 + 8/2) = 0.<br>
+        Nitrogen: V=5, N=2 (one lone pair), B=6 → FC = 5 − (2 + 6/2) = 5 − (2 + 3) = 0.<br>
+        All atoms FC = 0; structure consistent and neutral.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: Additional practice -->
+  <div class="section">
+    <h2>5. Practice Problems</h2>
+
+    <div class="activity">
+      <h3>Problem 1</h3>
+      <p>Calculate FCs in NH<sub>3</sub> (ammonia). Draw Lewis structure first.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Nitrogen: V=5, N=2 (one lone pair), B=6 → FC = 5 − (2 + 6/2) = 5 − (2 + 3) = 0.<br>
+        Each H: FC = 0. All FCs are zero for NH<sub>3</sub>.
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Problem 2</h3>
+      <p>Compute FCs for O in H<sub>3</sub>O<sup>+</sup> (hydronium ion).</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Oxygen: V=6, N=0 (no lone pairs in H<sub>3</sub>O<sup>+</sup> structure), B=8 → FC = 6 − (0 + 8/2) = 6 − 4 = +2.<br>
+        However, more commonly hydronium is drawn with one lone pair (N=2) and three bonds (B=6) giving FC = 6 − (2 + 6/2) = 6 − (2 + 3) = +1 — that is the correct representation: O has FC = +1, each H = 0, sum = +1.
+      </div>
+    </div>
+
+    <div class="activity">
+      <h3>Problem 3 (challenge)</h3>
+      <p>Draw CH<sub>4</sub>, CH<sub>3</sub><sup>−</sup>, and CH<sub>3</sub><sup>+</sup>, then compute FC on carbon in each.</p>
+      <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        CH<sub>4</sub>: C: V=4, N=0, B=8 → FC = 4 − 4 = 0.<br>
+        CH<sub>3</sub><sup>−</sup>: C has an extra lone pair: V=4, N=2, B=6 → FC = 4 − (2 + 3) = −1.<br>
+        CH<sub>3</sub><sup>+</sup>: (seen above) C FC = +1.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: Short explainer video -->
+  <div class="section">
+    <h2>Watch: Formal Charge</h2>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/C2l-76VP8s0" title="Formal Charge explanation" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Key Terms -->
+  <div class="section">
+    <h2>Key Terms & Definitions</h2>
+    <table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td>Formal charge</td><td>Calculated charge on an atom in a Lewis structure using FC = V − (N + B/2).</td></tr>
+      <tr><td>Valence electrons (V)</td><td>Electrons in the outermost shell of the neutral atom used for bonding.</td></tr>
+      <tr><td>Nonbonding electrons (N)</td><td>Electrons present as lone pairs on an atom in the Lewis structure.</td></tr>
+      <tr><td>Bonding electrons (B)</td><td>Total electrons in bonds around the atom (each bond = 2 electrons).</td></tr>
+      <tr><td>Hydronium (H<sub>3</sub>O<sup>+</sup>)</td><td>A common ion where formal charge helps explain acidity: O carries a positive formal charge.</td></tr>
+      <tr><td>Carbocation / Carbanion</td><td>Species with positively or negatively charged carbon centers (FC helps confirm charge location).</td></tr>
+    </table>
+  </div>
+
+  <div style="text-align:center; margin-top:18px;">
+    <button class="quiz-button" id="takeQuizBtn">Take the Lesson Quiz →</button>
+  </div>
+
+  <script>
+    function toggleAnswer(btn) {
+      const answer = btn.nextElementSibling;
+      const isVisible = answer.style.display === "block";
+      answer.style.display = isVisible ? "none" : "block";
+      btn.textContent = isVisible ? "Show Answer" : "Hide Answer";
+    }
+
+    document.getElementById('takeQuizBtn').addEventListener('click', () => {
+      window.parent.postMessage({ type: 'openQuiz', quiz: 'chapter3_lesson2_quiz.html' }, '*');
+    });
+  </script>
+
+</body>
+</html>

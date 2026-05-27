@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Chapter 4 – Lesson 6: Cis–Trans Isomerism in Cycloalkanes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.8;
+    font-size: 24px;
+  }
+
+  h1 { color:#136f63; font-size:2.1em; margin-bottom:0.4em; }
+  h2 { color:#136f63; font-size:1.6em; margin-top:1.4em; margin-bottom:0.3em; }
+  h3 { color:#174ea6; font-size:1.25em; margin:0.6em 0; }
+  p { margin:12px 0; }
+  ul { margin-left:26px; }
+
+  .section { margin-bottom:28px; }
+
+  .image { text-align:center; margin:20px 0; }
+  img {
+    width:80%;
+    max-width:540px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Activity blocks */
+  .activity {
+    background:#ffffff;
+    border-radius:12px;
+    padding:16px 20px;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+    margin:20px 0;
+  }
+  .toggle-btn {
+    background:#136f63;
+    color:white;
+    border:none;
+    padding:9px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:16px;
+    margin-top:8px;
+    transition:0.18s;
+  }
+  .toggle-btn:hover {
+    background:#0f5b52;
+    transform:translateY(-1px);
+  }
+  .answer {
+    display:none;
+    background:#eef3ff;
+    margin-top:12px;
+    padding:14px;
+    border-radius:8px;
+    font-size:17px;
+  }
+
+  .quiz-button {
+    display:inline-block;
+    background-color:#136f63;
+    color:white;
+    padding:13px 26px;
+    border-radius:10px;
+    border:none;
+    font-weight:bold;
+    font-size:17px;
+    cursor:pointer;
+    margin-top:22px;
+  }
+  .quiz-button:hover { background-color:#0f5b52; }
+
+  .note { font-size:1.3rem; color:#555; margin-top:6px; }
+
+  * { box-sizing:border-box; scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<h1>Cis–Trans Isomerism in Cycloalkanes</h1>
+<p class="note">
+Cycloalkanes cannot freely rotate like alkanes because their ring structure “locks” substituents in place.  
+This restricted rotation allows cycloalkanes to form "cis" and "trans" isomers depending on whether substituents lie on the same side or opposite sides of the ring.
+</p>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <h2>1. Why Ring Structure Creates Isomers</h2>
+  <p>
+    In an open-chain alkane, rotation around a C–C single bond is free.  
+    But in a ring, carbon–carbon bonds cannot rotate without breaking the ring.  
+    This means that substituents are fixed either above (up) or below (down) the plane of the ring.
+  </p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <h2>2. Cis vs Trans: The Basic Idea</h2>
+
+  <ul>
+    <li><strong>Cis:</strong> substituents on the same side of the ring (both up or both down).</li>
+    <li><strong>Trans:</strong> substituents on opposite sides of the ring (one up, one down).</li>
+  </ul>
+
+  <div class="image">
+    <img src="https://i.imgur.com/4dEmxic.png" alt="Cis and Trans dimethylcyclohexane">
+    <p class="note"><em>Both groups up → cis. One up, one down → trans.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 1: Cis or Trans?</h3>
+    <p>In the structure below, are the two methyl substituents cis or trans?</p>
+    <img src="https://i.imgur.com/b9qw9gw.png" alt="Example cis/trans question">
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Both methyl groups point <strong>up</strong> → this is <strong>cis-1,2-dimethylcyclohexane</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section">
+  <h2>3. When Can Cycloalkanes Have Cis–Trans Isomers?</h2>
+
+  <p>Look for these two conditions:</p>
+
+  <ol>
+    <li>The ring must have <strong>two different substituents</strong> (positions other than identical hydrogens).</li>
+    <li>The substituents must be <strong>on different carbons</strong> of the ring.</li>
+  </ol>
+
+  <div class="activity">
+    <h3>Activity 2: Predict Isomerism</h3>
+    <p>Can 1-methylcyclohexane have cis/trans isomers?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>No.</strong> There is only one substituent.  
+      Cis/trans requires <strong>two substituents</strong> on the ring.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section">
+  <h2>4. Naming Cis–Trans Cycloalkanes</h2>
+
+  <p>Use the prefixes <strong>cis-</strong> and <strong>trans-</strong> before the substituent name.</p>
+
+  <p><strong>Example:</strong></p>
+  <div class="image">
+    <img src="https://i.imgur.com/91YkpkP.png" alt="cis-1,3-dimethylcyclopentane">
+    <p class="note"><em>Substituents both down → cis-1,3-dimethylcyclopentane.</em></p>
+  </div>
+
+  <ul>
+    <li>Determine numbering that gives lowest locants.</li>
+    <li>Write cis/trans prefix.</li>
+    <li>Then name the substituents + cycloalkane parent.</li>
+  </ul>
+
+  <div class="activity">
+    <h3>Activity 3: Name This Compound</h3>
+    <img src="https://i.imgur.com/crgWLSu.png" alt="trans example">
+    <p>Provide the complete IUPAC name.</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      Substituents are on opposite sides → <strong>trans</strong>.  
+      Locants: 1 and 2.  
+      Final name: <strong>trans-1,2-dimethylcyclobutane</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section">
+  <h2>5. Chair Conformations and Cis/Trans</h2>
+
+  <p>
+    Cyclohexane rings adopt chair conformations, giving substituents axial or equatorial positions.
+    But cis/trans is determined only by up/down, NOT by axial/equatorial.
+  </p>
+
+  <div class="image">
+    <img src="https://www.chemistrysteps.com/wp-content/uploads/2024/03/cyclohexane-ring-flip.png" alt="chair conformations cis-trans explanation">
+    <p class="note"><em>Axial vs equatorial does NOT change cis/trans. Draw axial bonds straight up and straight down. Draw equatorial bonds up and out and down and out.</em></p>
+  </div>
+
+  <div class="activity">
+    <h3>Activity 4: Up/Down vs Axial/Equatorial</h3>
+    <p>If a substituent is “down equatorial,” is it still considered down when determining cis/trans?</p>
+    <button class="toggle-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Yes.</strong>  
+      Cis/trans compares up or down, not axial or equatorial orientation.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6 -->
+<div class="section">
+  <h2>6. Summary</h2>
+  <ul>
+    <li>Cis = same side (both up or both down).</li>
+    <li>Trans = opposite sides (one up, one down).</li>
+    <li>Rings cannot rotate, so stereochemistry is locked.</li>
+    <li>Cis/trans depends on substituent direction, not axial/equatorial orientation.</li>
+    <li>Cis/trans only possible when two substituents are present.</li>
+  </ul>
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+  <button class="quiz-button" id="takeQuizBtn">Take the Quiz →</button>
+</div>
+
+<script>
+function toggleAnswer(btn) {
+  const box = btn.nextElementSibling;
+  const shown = box.style.display === "block";
+  box.style.display = shown ? "none" : "block";
+  btn.textContent = shown ? "Show Answer" : "Hide Answer";
+}
+
+document.getElementById("takeQuizBtn").addEventListener("click", () => {
+  window.parent.postMessage({ type:"openQuiz", quiz:"chapter4_lesson6_quiz.html" }, "*");
+});
+</script>
+
+</body>
+</html>

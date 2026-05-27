@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 4 – Lesson 1 Quiz: Alkanes & Alkane Isomers</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #136f63;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+  }
+
+  /* Progress */
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  /* Question */
+  .question {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 20px;
+  }
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: 0.2s;
+  }
+  .choice:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .choice.selected { background: #174ea6; color: #fff; transform: scale(1.02); }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  /* Buttons */
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 15px;
+  }
+  .next-btn:hover { background: #0f5b52; }
+
+  /* Result */
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+    margin-top: 12px;
+  }
+  .stars {
+    font-size: 2.5em;
+    margin-top: 10px;
+  }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .quiz-btn {
+    background: #e8ecf8;
+    color: #174ea6;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: 0.2s;
+  }
+  .quiz-btn:hover { background: #d3dbf8; transform: translateY(-2px); }
+  .quiz-btn.primary { background: #136f63; color: #fff; }
+  .quiz-btn.primary:hover { background: #0f5b52; }
+
+  @media(max-width:600px){
+    .quiz-container { padding: 25px; }
+    .question { font-size: 1.15em; }
+    .stars { font-size: 2em; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+  <h2>Lesson 1 Quiz – Alkanes & Alkane Isomers</h2>
+
+  <div id="progressText" class="progress-text">Question 1 of 12</div>
+  <div class="progress-wrapper"><div id="progressBar" class="progress-bar"></div></div>
+
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+/* ============================
+     QUIZ DATA
+============================= */
+
+const quizData = [
+  {
+    q: "1. What is the general molecular formula for any open-chain alkane?",
+    c: ["CₙH₂ₙ", "CₙH₂ₙ₊₂", "CₙHₙ", "CₙH₂ₙ₋₂"],
+    a: 1,
+    e: "Acyclic alkanes always follow CₙH₂ₙ₊₂ because each carbon is fully saturated with hydrogens."
+  },
+  {
+    q: "2. Which term best describes hydrocarbons containing only single C–C and C–H bonds?",
+    c: ["Alkynes", "Arenes", "Alkanes", "Alkenes"],
+    a: 2,
+    e: "Alkanes are saturated hydrocarbons containing only σ (single) bonds."
+  },
+  {
+    q: "3. Which representation is the fastest way to sketch organic structures?",
+    c: ["Full Lewis structure", "Condensed structure", "Skeletal (line-angle) structure", "3D ball-and-stick model"],
+    a: 2,
+    e: "Skeletal diagrams simplify carbon chains and are the preferred format in organic chemistry."
+  },
+  {
+    q: "4. n-Pentane, isopentane, and neopentane all share the same molecular formula. What does this make them?",
+    c: ["Conformers", "Constitutional isomers", "Identical molecules", "Enantiomers"],
+    a: 1,
+    e: "They have the same formula but different connectivity → structural (constitutional) isomers."
+  },
+  {
+    q: "5. How many constitutional isomers exist for C₄H₁₀?",
+    c: ["1", "2", "3", "4"],
+    a: 1,
+    e: "C₄H₁₀ has only n-butane and isobutane (2-methylpropane)."
+  },
+  {
+    q: "6. Which statement correctly describes constitutional isomers?",
+    c: [
+      "They differ only in rotation around single bonds",
+      "They have the same connectivity but differ in 3D shape",
+      "They have the same formula but different atom connectivity",
+      "They differ only in orientation of substituents"
+    ],
+    a: 2,
+    e: "Constitutional isomers differ in connectivity, not just shape."
+  },
+  {
+    q: "7. Which has the higher boiling point?",
+    c: ["Highly branched alkanes", "Straight-chain alkanes"],
+    a: 1,
+    e: "Straight chains pack better → stronger dispersion forces → higher boiling points."
+  },
+  {
+    q: "8. A skeletal structure shows three carbon atoms in a straight line. Which alkane is this?",
+    c: ["Methane", "Ethane", "Propane", "Butane"],
+    a: 2,
+    e: "Three carbons in a row is propane (CH₃–CH₂–CH₃)."
+  },
+  {
+    q: "9. How many constitutional isomers does C₅H₁₂ have?",
+    c: ["1", "2", "3", "5"],
+    a: 2,
+    e: "C₅H₁₂ has exactly three: n-pentane, isopentane, and neopentane."
+  },
+  {
+    q: "10. Which molecule would be expected to have the lowest boiling point?",
+    c: ["n-hexane", "2-methylpentane", "2,2-dimethylbutane", "n-heptane"],
+    a: 2,
+    e: "2,2-dimethylbutane is the most branched, the most compact, and therefore has the weakest dispersion forces."
+  },
+  {
+    q: "11. Which statement is TRUE about skeletal formulas?",
+    c: [
+      "Hydrogen atoms on carbons are shown explicitly",
+      "Each line end represents a carbon atom",
+      "Double bonds must be shown as dotted lines",
+      "Carbons are labeled with C unless chiral"
+    ],
+    a: 1,
+    e: "Line ends and intersections represent carbon atoms; hydrogens on carbon are usually omitted."
+  },
+  {
+    q: "12. You draw two possible isomers for C₆H₁₄ that look different. How do you confirm whether they are identical or different?",
+    c: [
+      "Check if the wedge/dash directions match",
+      "Rotate and reflect the structures to compare connectivity",
+      "Compare boiling points in a data book",
+      "Count hydrogens only"
+    ],
+    a: 1,
+    e: "Rotation and reflection help determine whether connectivity is actually the same."
+  }
+];
+
+/* ============================
+       QUIZ LOGIC
+============================= */
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+
+</script>
+</body>
+</html>

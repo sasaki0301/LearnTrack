@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 4 – Lesson 3 Quiz: Naming Alkanes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 18px;
+    width: 95%;
+    max-width: 850px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  h2 {
+    color: #136f63;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: 0.4s ease;
+  }
+
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .question {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 18px;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .choice {
+    background: #e8ecf8;
+    padding: 14px 18px;
+    border-radius: 10px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 1.05em;
+    border: none;
+  }
+
+  .choice:hover { background:#d3dbf8; transform: translateY(-2px); }
+  .choice.selected { background:#174ea6; color:white; transform: scale(1.02); }
+
+  .structure-img {
+    width: 70%;
+    max-width: 420px;
+    margin: 15px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  .explanation {
+    background: #eef3ff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 12px;
+    display: none;
+    text-align: left;
+  }
+
+  .next-btn {
+    background: #136f63;
+    color: white;
+    padding: 12px 26px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: none;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .next-btn:hover { background:#0f5b52; }
+
+  .result {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #174ea6;
+  }
+
+  .stars {
+    font-size: 2.4em;
+    margin: 12px 0;
+  }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .quiz-btn {
+    background: #e8ecf8;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 0.95em;
+    cursor: pointer;
+  }
+
+  .quiz-btn:hover { background: #d3dbf8; }
+  .quiz-btn.primary {
+    background: #136f63;
+    color: #fff;
+  }
+  .quiz-btn.primary:hover { background:#0f5b52; }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Lesson 3 Quiz – Naming Alkanes</h2>
+
+  <div class="progress-text" id="progressText">Question 1 of 10</div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+  {
+    q: "1. What is the name of the following alkane?",
+    img: "https://i.imgur.com/HyK1EvC.jpeg",
+    c: ["Propane", "Butane", "Pentane", "Hexane"],
+    a: 0,
+    e: "The structure shows 3 carbons in a straight chain → propane."
+  },
+  {
+    q: "2. What is the longest continuous chain in the structure below?",
+    img: "https://i.imgur.com/zFkWOxI.png",
+    c: ["4 carbons", "5 carbons", "6 carbons", "7 carbons"],
+    a: 0,
+    e: "The highlighted chain contains 4 carbons → butane backbone."
+  },
+  {
+    q: "3. Name this branched structure:",
+    img: "https://i.imgur.com/DXjSFBP.png",
+    c: ["2,3-dimethylbutane", "3-methylbutane", "2-methylpentane", "2,3-dimethylpentane"],
+    a: 3,
+    e: "Longest chain = 5 carbons; substituent is on C-2 and 3 → 2,3-dimethylpentane."
+  },
+  {
+    q: "4. What is the correct numbering direction for this chain?",
+    img: "https://i.imgur.com/tyElqo2.png",
+    c: ["Left to right", "Right to left", "Either direction gives same result", "Impossible to determine"],
+    a: 1,
+    e: "Number from the side that gives the substituent the lowest possible locant."
+  },
+  {
+    q: "5. Name the following structure:",
+    img: "https://i.imgur.com/wAjzYbL.png",
+    c: ["3-ethylpentane", "2-ethylpentane", "4-ethylpentane", "3-methylhexane"],
+    a: 3,
+    e: "Longest chain = 6 carbons; substituent (methyl) is on C-3."
+  },
+  {
+    q: "6. What is the correct IUPAC name?",
+    img: "https://i.imgur.com/biSpfQ6.png",
+    c: ["4-ethyl-5-methylheptane", "3,4-didimethylheptane", "4-ethyl-3-methylheptane", "3-ethyl-4-methylheptane"],
+    a: 2,
+    e: "Locants are 4-ehtyl and 3-methyl, longest chain= 7 carbons → 4-ethyl-3-methylheptane"
+  },
+  {
+    q: "7. The correct alphabetical order for substituents is:",
+    c: ["ethyl, methyl", "methyl, ethyl", "ethyl comes after methyl", "order doesn't matter"],
+    a: 0,
+    e: "Alphabetical order ignores prefixes → ethyl before methyl."
+  },
+  {
+    q: "8. What suffix is always used for alkanes?",
+    c: ["-ene", "-yne", "-ane", "-yl"],
+    a: 2,
+    e: "Alkanes are saturated hydrocarbons with the suffix -ane."
+  },
+  {
+    q: "9. What is the name of this structure?",
+    img: "https://i.imgur.com/pbmONRr.png",
+    c: ["Hexane", "Heptane", "Octane", "Nonane"],
+    a: 2,
+    e: "The chain contains 8 carbons → octane."
+  },
+  {
+    q: "10. Which rule is MOST important when determining substituent locants?",
+    c: ["Choose the direction that gives alphabetical priority", 
+        "Choose the direction with the most hydrogens",
+        "Choose the direction giving the lowest locant numbers",
+        "Choose the direction with the longest substituent"],
+    a: 2,
+    e: "Lowest locant rule is the highest priority in naming alkanes."
+  }
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

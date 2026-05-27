@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 5 – Lesson 6 Quiz: Cycloalkynes</title>
+
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f9f1, #f7faff);
+    margin: 0;
+    padding: 40px 20px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .quiz-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 40px 50px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+  }
+
+  h2 {
+    color: #136f63;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+  }
+
+  .progress-wrapper {
+    background: #e9f5ef;
+    border-radius: 8px;
+    height: 14px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(to right, #136f63, #2b7de9);
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    text-align: right;
+    font-size: 0.95em;
+    color: #174ea6;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .question {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #174ea6;
+    margin-bottom: 20px;
+  }
+
+  .choices {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .choice {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  .choice:hover { background: #d3dbf8; }
+  .choice.selected { background: #174ea6; color: #fff; }
+
+  .explanation {
+    background: #eef3ff;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    font-size: 1.05em;
+  }
+
+  .next-btn {
+    background: #136f63;
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 1.05em;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  .next-btn:hover { background: #0f5b52; }
+
+  .stars {
+    font-size: 2.5em;
+    margin-top: 10px;
+  }
+
+  .quiz-nav {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-btn {
+    background: #e8ecf8;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+  }
+
+  .quiz-btn.primary {
+    background: #136f63;
+    color: #fff;
+  }
+
+  .quiz-btn.primary:hover { background: #0f5b52; }
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+  <h2>Lesson 6 Quiz – Cycloalkynes</h2>
+  <div class="progress-text" id="progressText">Question 1 of 10</div>
+  <div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+
+  <div id="quizBox"></div>
+  <button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+  {
+    q: "1. What functional group defines a cycloalkyne?",
+    c: ["A ring with only single bonds", "A ring containing a C=C bond", "A ring containing a C≡C bond", "A ring containing oxygen"],
+    a: 2,
+    e: "Cycloalkynes are cyclic hydrocarbons that contain at least one carbon–carbon triple bond."
+  },
+  {
+    q: "2. What hybridization do the carbons in a triple bond have?",
+    c: ["sp³", "sp²", "sp", "unhybridized"],
+    a: 2,
+    e: "Carbons in a triple bond are sp-hybridized, giving a linear geometry."
+  },
+  {
+    q: "3. Why are cycloalkynes generally less stable than acyclic alkynes?",
+    c: ["They contain more hydrogens", "They have higher molecular mass", "They experience angle strain", "They lack pi bonds"],
+    a: 2,
+    e: "Triple bonds prefer a 180° angle, but rings force bending, causing severe angle strain."
+  },
+  {
+    q: "4. Which ring size is the smallest that commonly forms a stable cycloalkyne?",
+    c: ["5 carbons", "6 carbons", "7 carbons", "8 carbons"],
+    a: 3,
+    e: "Cyclooctyne is the smallest commonly stable cycloalkyne because its larger ring reduces strain."
+  },
+  {
+    q: "5. Which of the following cycloalkynes would be MOST strained?",
+    c: ["Cyclooctyne", "Cyclodecyne", "Cyclopentyne", "Cyclononyne"],
+    a: 2,
+    e: "Smaller rings force greater bending of the triple bond, making cyclopentyne extremely strained."
+  },
+  {
+    q: "6. How does the triple bond affect the reactivity of cycloalkynes?",
+    c: ["It lowers reactivity", "It has no effect", "It increases reactivity due to strain", "It prevents reactions"],
+    a: 2,
+    e: "Angle strain raises the energy of cycloalkynes, making reactions that relieve strain favorable."
+  },
+  {
+    q: "7. How are cycloalkynes named?",
+    c: ["Using the suffix -ene", "Using the suffix -ane", "Using the suffix -yne", "Using aromatic naming rules"],
+    a: 2,
+    e: "Cycloalkynes use the suffix -yne, just like acyclic alkynes."
+  },
+  {
+    q: "8. When numbering a cycloalkyne, what gets priority?",
+    c: ["Substituents", "The triple bond", "Alphabetical order", "Ring size"],
+    a: 1,
+    e: "The triple bond must receive the lowest possible locant."
+  },
+  {
+    q: "9. Why is cyclobutyne not commonly isolated?",
+    c: ["It is too heavy", "It lacks pi bonds", "It has extreme angle strain", "It is aromatic"],
+    a: 2,
+    e: "Small rings force extreme bending of the triple bond, making cyclobutyne highly unstable."
+  },
+  {
+    q: "10. Why are cycloalkynes useful in specialized organic synthesis?",
+    c: ["They are inert", "They have low energy", "They release energy by relieving strain", "They contain metals"],
+    a: 2,
+    e: "Their high strain makes them highly reactive, which is useful in selective chemical reactions."
+  }
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>

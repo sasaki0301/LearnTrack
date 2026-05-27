@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chapter 5 – Lesson 3 Quiz: Alkene Isomerism (E–Z & Cis–Trans)</title>
+
+<style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e8f9f1, #f7faff);
+  margin: 0;
+  padding: 40px 20px;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.quiz-container {
+  background: #fff;
+  border-radius: 18px;
+  padding: 40px 50px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  width: 95%;
+  max-width: 850px;
+  text-align: center;
+}
+
+h2 {
+  color: #136f63;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+}
+
+.progress-wrapper {
+  background: #e9f5ef;
+  border-radius: 8px;
+  height: 14px;
+  width: 100%;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #136f63, #2b7de9);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progress-text {
+  text-align: right;
+  font-size: 0.95em;
+  color: #174ea6;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.question {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #174ea6;
+  margin-bottom: 20px;
+}
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.choice {
+  background: #e8ecf8;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05em;
+}
+.choice:hover { background: #d3dbf8; }
+.choice.selected { background: #174ea6; color: #fff; }
+
+.explanation {
+  background: #eef3ff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 12px;
+  display: none;
+  text-align: left;
+}
+
+.next-btn {
+  background: #136f63;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 1.05em;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.result {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #174ea6;
+  margin-top: 20px;
+}
+
+.quiz-nav {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.quiz-btn {
+  background: #e8ecf8;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.quiz-btn.primary {
+  background: #136f63;
+  color: #fff;
+}
+  .stars {
+  font-size: 2.5em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="quiz-container">
+<h2>Lesson 3 Quiz – Alkene Isomerism (cis–trans & E–Z)</h2>
+<div class="progress-text" id="progressText"></div>
+<div class="progress-wrapper"><div class="progress-bar" id="progressBar"></div></div>
+<div id="quizBox"></div>
+<button id="nextBtn" class="next-btn" style="display:none;">Next</button>
+</div>
+
+<script>
+const quizData = [
+{
+q:"1. When must the E–Z system be used instead of cis–trans?",
+c:["When the double bond is terminal",
+"When all four substituents are identical",
+"When each alkene carbon has two different substituents",
+"When the molecule is symmetric"],
+a:2,
+e:"Cis–trans fails when each double-bonded carbon has two different groups. E–Z is required."
+},
+{
+q:"2. Which alkene can show cis–trans isomerism?",
+c:["CH₂=CH₂","CH₃–CH=CH–CH₃","CH₂=CH–CH₃","CH₂=C(CH₃)₂"],
+a:1,
+e:"But-2-ene has identical groups on each carbon, allowing cis–trans isomerism."
+},
+{
+q:"3. Which pair correctly describes the same molecule?",
+c:["trans-but-2-ene and (Z)-but-2-ene",
+"cis-but-2-ene and (E)-but-2-ene",
+"cis-but-2-ene and (Z)-but-2-ene",
+"(E)-but-1-ene and trans-but-1-ene"],
+a:2,
+e:"In simple cases, cis corresponds to Z and trans corresponds to E."
+},
+{
+q:"4. What determines priority in the E–Z system?",
+c:["Atomic mass","Electronegativity","Atomic number","Bond order"],
+a:2,
+e:"Priority is assigned by atomic number — higher atomic number = higher priority."
+},
+{
+q:"5. Which alkene has no geometric isomerism?",
+c:["but-2-ene","pent-2-ene","prop-1-ene","hex-3-ene"],
+a:2,
+e:"One carbon in prop-1-ene has two identical hydrogens, so no E–Z or cis–trans isomerism."
+},
+{
+q:"6. If the highest-priority groups are on opposite sides of the C=C bond, the alkene is:",
+c:["cis","Z","trans","E"],
+a:3,
+e:"Opposite-side high-priority groups correspond to the E configuration."
+},
+{
+q:"7. Which is generally more stable?",
+c:["Z-alkenes","E-alkenes","Cis alkenes","They are equally stable"],
+a:1,
+e:"E-alkenes are usually more stable due to reduced steric repulsion."
+},
+{
+q:"8. Which feature must remain unchanged between resonance or isomeric drawings?",
+c:["Electron placement","Bond order","Atomic positions","Formal charges"],
+a:2,
+e:"Atoms never move in isomerism — only electron arrangement differs."
+},
+{
+q:"9. Which alkene must be named using E–Z?",
+c:["but-2-ene","hex-3-ene","2-methylpropene","pent-2-ene"],
+a:1,
+e:"Hex-3-ene has four different substituents around the double bond, requiring E–Z."
+},
+{
+q:"10. Why is cis–trans naming considered limited?",
+c:["It ignores functional groups",
+"It applies only to cycloalkanes",
+"It cannot handle four different substituents",
+"It is outdated"],
+a:2,
+e:"Cis–trans fails when substituents are all different — E–Z is more general."
+}
+];
+
+let current = 0, score = 0, selected = null, showingExplanation = false;
+const quizBox = document.getElementById("quizBox");
+const nextBtn = document.getElementById("nextBtn");
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  const q = quizData[current];
+  updateProgress();
+  quizBox.innerHTML = `
+    <div class='question'>${q.q}</div>
+    <div class='choices'></div>
+    <div class='explanation' id='explanationBox'></div>
+  `;
+  const choicesContainer = quizBox.querySelector(".choices");
+  q.c.forEach((choice, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.innerHTML = choice;
+    btn.addEventListener("click", () => selectChoice(i));
+    choicesContainer.appendChild(btn);
+  });
+  nextBtn.style.display = "none";
+  selected = null;
+  showingExplanation = false;
+}
+
+function selectChoice(i) {
+  if (showingExplanation) return;
+  selected = i;
+  document.querySelectorAll(".choice").forEach((btn, idx) => {
+    btn.classList.toggle("selected", idx === i);
+    btn.disabled = true;
+  });
+  const q = quizData[current];
+  const expBox = document.getElementById("explanationBox");
+  const correct = i === q.a;
+
+  if (correct) score++;
+
+  expBox.innerHTML = `<strong>${correct ? "✅ Correct!" : "❌ Incorrect."}</strong><br>${q.e}`;
+  expBox.style.display = "block";
+  nextBtn.style.display = "inline-block";
+  showingExplanation = true;
+}
+
+nextBtn.addEventListener("click", () => {
+  current++;
+  if (current < quizData.length) showQuestion();
+  else showResult();
+});
+
+function updateProgress() {
+  const percent = (current / quizData.length) * 100;
+  progressBar.style.width = percent + "%";
+  progressText.textContent = `Question ${current + 1} of ${quizData.length}`;
+}
+
+function getStarRating(percent) {
+  if (percent === 100) return "⭐️⭐️⭐️";
+  else if (percent >= 90) return "⭐️⭐️☆";
+  else if (percent >= 80) return "⭐️☆☆";
+  else return "☆☆☆";
+}
+
+let resultSent = false;
+
+function showResult() {
+  progressBar.style.width = "100%";
+  progressText.textContent = "Quiz Completed";
+
+  const percent = Math.round((score / quizData.length) * 100);
+  const passed = percent >= 80;
+
+  quizBox.innerHTML = `
+    <div class='stars'>${getStarRating(percent)}</div>
+    <div class='result'>You scored ${score}/${quizData.length} (${percent}%)</div>
+    <p id="saveStatus" style="color:#174ea6;font-weight:600;margin-top:10px;">Saving progress...</p>
+    <div class='quiz-nav'>
+      <button class='quiz-btn' id='backBtn' disabled>⬅ Back</button>
+      <button class='quiz-btn' id='retryBtn' disabled>🔁 Retry</button>
+      <button class='quiz-btn primary' id='nextLessonBtn' disabled>➡ Next Lesson</button>
+    </div>
+  `;
+
+  nextBtn.style.display = "none";
+
+  if (!resultSent) {
+    resultSent = true;
+    window.parent.postMessage({ type: "quizResult", score: percent, passed }, "*");
+  }
+
+  setTimeout(() => {
+    const status = document.getElementById("saveStatus");
+    const backBtn = document.getElementById("backBtn");
+    const retryBtn = document.getElementById("retryBtn");
+    const nextLessonBtn = document.getElementById("nextLessonBtn");
+
+    if (status) status.textContent = passed
+      ? "Progress sent. You may proceed after it is saved."
+      : "Attempt recorded. Retake the quiz to unlock the next lesson.";
+
+    if (backBtn) backBtn.disabled = false;
+    if (retryBtn) retryBtn.disabled = false;
+    if (nextLessonBtn) nextLessonBtn.disabled = !passed;
+
+    if (retryBtn) retryBtn.addEventListener("click", retryQuiz);
+    if (backBtn) backBtn.addEventListener("click", () =>
+      window.parent.postMessage({ type: "quizBack" }, "*")
+    );
+    if (nextLessonBtn) nextLessonBtn.addEventListener("click", () => {
+      if (passed) window.parent.postMessage({ type: "quizNextLesson" }, "*");
+    });
+  }, 1200);
+}
+
+function retryQuiz() {
+  resultSent = false;
+  current = 0;
+  score = 0;
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>
